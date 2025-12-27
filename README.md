@@ -2,6 +2,9 @@
 
 > The intent is not to define what is true about a character, system, or situation, but to bias how outcomes are interpreted and resolved.
 
+[![Tests](https://github.com/aa-parky/pipeworks_conditional_axis/actions/workflows/test.yml/badge.svg )](https://github.com/aa-parky/pipeworks_conditional_axis/actions/workflows/test.yml )
+[![Lint & Type Check](https://github.com/aa-parky/pipeworks_conditional_axis/actions/workflows/lint.yml/badge.svg )](https://github.com/aa-parky/pipeworks_conditional_axis/actions/workflows/lint.yml )
+
 `pipeworks-conditional-axis` is a structured, rule-based Python framework for generating coherent state descriptions across multiple semantic dimensions (axes). It is designed for procedural content generation in both visual (AI image prompts) and narrative (game development, MUDs, interactive fiction) contexts.
 
 This package moves beyond simple state flags or debuffs, treating conditions as **axes that modulate resolution**. Instead of defining what *is true*, it provides a system to bias how outcomes are interpreted, what they cost, and what traces they leave behind.
