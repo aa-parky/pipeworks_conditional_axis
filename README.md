@@ -4,6 +4,7 @@
 
 [![Tests](https://github.com/aa-parky/pipeworks_conditional_axis/actions/workflows/test.yml/badge.svg )](https://github.com/aa-parky/pipeworks_conditional_axis/actions/workflows/test.yml )
 [![Lint & Type Check](https://github.com/aa-parky/pipeworks_conditional_axis/actions/workflows/lint.yml/badge.svg )](https://github.com/aa-parky/pipeworks_conditional_axis/actions/workflows/lint.yml )
+[![codecov](https://codecov.io/gh/aa-parky/pipeworks_conditional_axis/branch/main/graph/badge.svg)](https://codecov.io/gh/aa-parky/pipeworks_conditional_axis)
 
 `pipeworks-conditional-axis` is a structured, rule-based Python framework for generating coherent state descriptions across multiple semantic dimensions (axes). It is designed for procedural content generation in both visual (AI image prompts) and narrative (game development, MUDs, interactive fiction) contexts.
 
