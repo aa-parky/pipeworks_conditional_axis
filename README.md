@@ -1,156 +1,188 @@
-# pipeworks-conditional-axis
 
-> The intent is not to define what is true about a character, system, or situation, but to bias how outcomes are interpreted and resolved.
+[![Tests](https://github.com/aa-parky/pipeworks_entity_state_generation/actions/workflows/test.yml/badge.svg )](https://github.com/aa-parky/pipeworks_entity_state_generation/actions/workflows/test.yml ) [![Lint & Type Check](https://github.com/aa-parky/pipeworks_entity_state_generation/actions/workflows/lint.yml/badge.svg )](https://github.com/aa-parky/pipeworks_entity_state_generation/actions/workflows/lint.yml ) [![codecov](https://codecov.io/gh/aa-parky/pipeworks_entity_state_generation/branch/main/graph/badge.svg)](https://codecov.io/gh/aa-parky/pipeworks_entity_state_generation)[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-[![Tests](https://github.com/aa-parky/pipeworks_entity_state_generation/actions/workflows/test.yml/badge.svg )](https://github.com/aa-parky/pipeworks_entity_state_generation/actions/workflows/test.yml )
-[![Lint & Type Check](https://github.com/aa-parky/pipeworks_entity_state_generation/actions/workflows/lint.yml/badge.svg )](https://github.com/aa-parky/pipeworks_entity_state_generation/actions/workflows/lint.yml )
-[![codecov](https://codecov.io/gh/aa-parky/pipeworks_entity_state_generation/branch/main/graph/badge.svg)](https://codecov.io/gh/aa-parky/pipeworks_entity_state_generation)
+# 1 Pipeworks Entity State Generation
 
-`pipeworks-conditional-axis` is a structured, rule-based Python framework for generating coherent state descriptions across multiple semantic dimensions (axes). It is designed for procedural content generation in both visual (AI image prompts) and narrative (game development, MUDs, interactive fiction) contexts.
+This repository contains **generation-time primitives** for producing structured, interpretable state for entities within the Pipeworks ecosystem.
 
-This package moves beyond simple state flags or debuffs, treating conditions as **axes that modulate resolution**. Instead of defining what *is true*, it provides a system to bias how outcomes are interpreted, what they cost, and what traces they leave behind.
+It is not a rendering system, a simulation engine, or a narrative framework.
 
-## Core Philosophy
+Its sole responsibility is to answer the question:
 
-The system is built on a few key principles:
+> **“What is the state of this thing, and where does it behave slightly off-pattern?”**
 
-*   **Conditions as Axes, Not Labels**: A condition exists on an axis (e.g., `Stable ↔ Precarious`), not as a binary on/off switch. The system asks, *“Where along this axis does interpretation tilt?”* rather than *“Do you have the condition?”*
-*   **Modulation Over Definition**: Conditions influence the *margins* of success or failure, bias the tone and consequences of actions, and color narrative interpretation. They do not prescribe specific outcomes or forbid attempts, preserving agency and emergence.
-*   **Observed, Not Owned**: Conditions are not something a character *has*; they are something the system *observes* about a situation, its context, and its accumulated history. This avoids medicalization or moral judgment, aligning instead with a ledger-based approach where actions leave traces.
+---
 
-## Key Features
+## 1.1 What Lives Here
 
-*   **Weighted Probability Distributions**: Generate realistic populations and scenarios using weighted probabilities (e.g., "poor" is more common than "wealthy").
-*   **Semantic Exclusion Rules**: Prevent illogical combinations with a robust, declarative rule system (e.g., a character with the "decadent" wealth condition cannot also be "frail").
-*   **Mandatory & Optional Policies**: Control the complexity and narrative detail of generated conditions by defining which axes are mandatory and which are optional.
-*   **Reproducible Generation**: Use random seeds to generate the exact same conditions every time, ensuring deterministic and testable output.
-*   **Extensible Architecture**: Easily add new condition types and axes to suit any domain.
-*   **Zero Dependencies**: Pure Python with no external runtime dependencies.
+This repository defines two orthogonal systems used during entity generation:
 
-## Core Systems
+1. **Conditional Axes** — structured, population-weighted state
+2. **Quirks** — persistent, localised irregularities
 
-The package includes three primary condition generation systems:
+Together, they provide a stable foundation for generating characters, locations, items, documents, processes, and other entities **before** interpretation or presentation.
 
-### 1. Character Conditions
+---
 
-Generates physical and social character states. This system establishes a character’s baseline physical and social presence.
+## 1.2 Conditional Axes
 
-| Axis | Description | Example Values |
-|---|---|---|
-| **Physique** | Body structure and build | `skinny`, `wiry`, `stocky`, `hunched`, `frail`, `broad` |
-| **Wealth** | Economic and social status | `poor`, `modest`, `well-kept`, `wealthy`, `decadent` |
-| **Health** | Physical health and condition | `sickly`, `scarred`, `weary`, `hale`, `limping` |
-| **Demeanor** | Behavioral presentation | `timid`, `suspicious`, `resentful`, `alert`, `proud` |
-| **Age** | Life stage | `young`, `middle-aged`, `old`, `ancient` |
+Conditional axes describe the **current lived state** of an entity.
 
-### 2. Occupation Conditions
+They are:
 
-Generates the contextual characteristics and social positioning of an occupation. Instead of defining *what* a job is, this system describes *what living with it feels like*.
+- mutually exclusive within an axis
+- population-weighted rather than uniform
+- explainable and auditable
+- resolved once during generation
 
-| Axis | Description | Example Values |
-|---|---|---|
-| **Legitimacy** | How society views the occupation | `sanctioned`, `tolerated`, `questioned`, `illicit` |
-| **Visibility** | How conspicuous the work is | `hidden`, `discreet`, `routine`, `conspicuous` |
-| **Moral Load** | The ethical weight on practitioners | `neutral`, `burdened`, `conflicted`, `corrosive` |
-| **Dependency** | How essential the work is to society | `optional`, `useful`, `necessary`, `unavoidable` |
-| **Risk Exposure** | The physical and psychological toll | `benign`, `straining`, `hazardous`, `eroding` |
+Examples of conditional axes include:
 
-### 3. Facial Conditions
+- health
+- wealth
+- age
+- physique
+- demeanor
+- occupation conditions (labour constraints, not job titles)
 
-Generates facial signal descriptors that modulate how a character’s face is perceived. These are interpretive signals, not anatomical specifications.
+Conditional axes answer:
 
-| Axis | Description | Example Values |
-|---|---|---|
-| **Facial Signal** | Perceptual modifier for facial features | `understated`, `pronounced`, `exaggerated`, `asymmetrical`, `weathered`, `soft-featured`, `sharp-featured` |
+> **“What pressures is the world currently applying to this entity?”**
 
-## Installation
+They do not encode:
 
-The package has zero runtime dependencies and can be installed directly from PyPI:
+- traits
+- abilities
+- progression
+- optimisation
+- heroism
 
-```bash
-pip install pipeworks-conditional-axis
+Axes bias probability and interpretation, not outcomes.
+
+---
+
+## 1.3 Quirks
+
+Quirks introduce **structured irregularity**.
+
+They are not axes, traits, or modifiers.
+
+A quirk is a small, persistent deviation that:
+
+- remains local to an entity
+- does not resolve into a system-wide rule
+- biases attention and interpretation
+- repeats without fully explaining itself
+
+Quirks may apply to:
+
+- characters
+- locations
+- items
+- organisations
+- documents
+- processes
+
+Quirks answer:
+
+> **“Where does this entity fail to behave like a clean model?”**
+
+They complicate situations but must never resolve them.
+
+---
+
+## 1.4 Relationship Between Axes and Quirks
+
+Conditional axes and quirks are intentionally **orthogonal**.
+
+- Axes resolve state
+- Quirks annotate state
+- Axes bias probability
+- Quirks bias attention
+
+Quirks must not:
+
+- influence axis resolution
+- affect axis weighting
+- generate derived state upstream
+
+Axes push the system toward coherence.
+
+Quirks prevent it becoming too clean.
+
+---
+
+## 1.5 Repository Structure
+
+```text
+
+pipeworks_entity_state_generation/
+
+├── README.md
+│
+├── axes/
+│   ├── condition_axis_v_01.md
+│   ├── condition_axis_v_02.md
+│   ├── character_conditions.py
+│   └── occupation_axis.py
+│
+├── quirks/
+│   ├── quirks_overview.md
+│   ├── quirk_registry.md        # (planned)
+│   ├── quirk_schema.py          # (planned)
+│   └── quirk_selection.py       # (planned)
+│
+└── common/
+  ├── entity_scopes.py
+  ├── tagging.py
+  └── seed_utils.py
+
 ```
 
-For development, clone the repository and install with the `[dev]` extras:
+Folders represent **ontological boundaries**, not deployment units.
 
-```bash
-git clone https://github.com/aa-parky/pipeworks_entity_state_generation.git
-cd pipeworks_entity_state_generation
-pip install -e ".[dev]"
-```
+---
 
-## Usage
+## 1.6 What This Repository Is Not
 
-Each system provides a `generate_<type>_condition()` function and a `<type>_condition_to_prompt()` serializer.
+This repository does **not**:
 
-```python
-from condition_axis import (
-    generate_condition,
-    generate_facial_condition,
-    generate_occupation_condition,
-    condition_to_prompt,
-    facial_condition_to_prompt,
-    occupation_condition_to_prompt,
-)
+- render text or images
+- simulate behaviour over time
+- implement progression systems
+- resolve narrative outcomes
+- balance gameplay
+- define UI or player interaction
 
-# 1. Generate conditions for each system using a seed for reproducibility
-char_condition = generate_condition(seed=42)
-face_condition = generate_facial_condition(seed=42)
-occ_condition = generate_occupation_condition(seed=42)
+Those concerns belong downstream.
 
-# 2. Convert the structured data to prompt-friendly strings
-char_prompt = condition_to_prompt(char_condition)
-face_prompt = facial_condition_to_prompt(face_condition)
-occ_prompt = occupation_condition_to_prompt(occ_condition)
+---
 
-# 3. Combine the prompts for a full description
-full_prompt = f"{char_prompt}, {face_prompt}, whose work is {occ_prompt}"
+## 1.7 Design Principles
 
-print(f"Character Condition: {char_prompt}")
-# >>> Character Condition: hunched, poor, scarred
+- Interpretation over prescription
+- Bias over randomness
+- Structure with room for failure
+- Explainable state, inexplicable detail
 
-print(f"Facial Condition: {face_prompt}")
-# >>> Facial Condition: weathered
+Generated entities should feel *coherent*, not optimised.
 
-print(f"Occupation Condition: {occ_prompt}")
-# >>> Occupation Condition: tolerated, hidden, neutral
+---
 
-print(f"\nCombined: {full_prompt}")
-# >>> Combined: hunched, poor, scarred, weathered, whose work is tolerated, hidden, neutral
-```
+## 1.8 Status
 
-### Example: Occupation Archetypes
+This repository is under active development.
 
-The power of the system comes from combining axes to create rich archetypes. The occupation axes can describe a "Corpse Collector" and an "Unofficial Problem Resolver" with the same five dimensions, just different pressures.
+Interfaces, schemas, and selection logic are expected to evolve, but the core separation between:
 
-**Corpse Collector**
-```python
-{
-  "legitimacy": "tolerated",
-  "visibility": "routine",
-  "moral_load": "burdened",
-  "dependency": "necessary",
-  "risk_exposure": "eroding",
-}
-```
-*Narrative Handles: "Licensed for after-hours recovery," "Doesn’t eat near work."*
+- state resolution (axes)
+- state irregularity (quirks)
 
-**Unofficial Problem Resolver**
-```python
-{
-  "legitimacy": "questioned",
-  "visibility": "discreet",
-  "moral_load": "conflicted",
-  "dependency": "unavoidable",
-  "risk_exposure": "hazardous",
-}
-```
-*Narrative Handles: "Works without appointment," "Paid after results," "Never advertised."*
+is considered foundational.
 
-## Contributing
+---
 
-Contributions are welcome! This project uses a standard development workflow with `pytest` for testing, `black` for formatting, `ruff` for linting, and `mypy` for type checking. Please see `pyproject.toml` for full development dependencies and tool configurations.
+## 1.9 License
 
-## License
+GPL-3.0
 
-This project is licensed under the **GNU General Public License v3.0**. See the `LICENSE` file for details.
+This repository is part of the broader Pipeworks project.
