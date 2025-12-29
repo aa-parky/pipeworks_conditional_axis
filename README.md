@@ -2,9 +2,9 @@
 
 > The intent is not to define what is true about a character, system, or situation, but to bias how outcomes are interpreted and resolved.
 
-[![Tests](https://github.com/aa-parky/pipeworks_conditional_axis/actions/workflows/test.yml/badge.svg )](https://github.com/aa-parky/pipeworks_conditional_axis/actions/workflows/test.yml )
-[![Lint & Type Check](https://github.com/aa-parky/pipeworks_conditional_axis/actions/workflows/lint.yml/badge.svg )](https://github.com/aa-parky/pipeworks_conditional_axis/actions/workflows/lint.yml )
-[![codecov](https://codecov.io/gh/aa-parky/pipeworks_conditional_axis/branch/main/graph/badge.svg)](https://codecov.io/gh/aa-parky/pipeworks_conditional_axis)
+[![Tests](https://github.com/aa-parky/pipeworks_entity_state_generation/actions/workflows/test.yml/badge.svg )](https://github.com/aa-parky/pipeworks_entity_state_generation/actions/workflows/test.yml )
+[![Lint & Type Check](https://github.com/aa-parky/pipeworks_entity_state_generation/actions/workflows/lint.yml/badge.svg )](https://github.com/aa-parky/pipeworks_entity_state_generation/actions/workflows/lint.yml )
+[![codecov](https://codecov.io/gh/aa-parky/pipeworks_entity_state_generation/branch/main/graph/badge.svg)](https://codecov.io/gh/aa-parky/pipeworks_entity_state_generation)
 
 `pipeworks-conditional-axis` is a structured, rule-based Python framework for generating coherent state descriptions across multiple semantic dimensions (axes). It is designed for procedural content generation in both visual (AI image prompts) and narrative (game development, MUDs, interactive fiction) contexts.
 
@@ -74,8 +74,8 @@ pip install pipeworks-conditional-axis
 For development, clone the repository and install with the `[dev]` extras:
 
 ```bash
-git clone https://github.com/aa-parky/pipeworks_conditional_axis.git
-cd pipeworks_conditional_axis
+git clone https://github.com/aa-parky/pipeworks_entity_state_generation.git
+cd pipeworks_entity_state_generation
 pip install -e ".[dev]"
 ```
 
