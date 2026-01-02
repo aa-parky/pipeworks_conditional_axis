@@ -63,11 +63,13 @@ Step-by-step instructions for setting up development tools and CI/CD.
 |----------|---------|
 | [Pre-Commit Hooks Setup Guide.md](guides/Pre-Commit%20Hooks%20Setup%20Guide.md) | Local git hooks for code quality |
 | [GitHub Actions CI Setup Guide.md](guides/GitHub%20Actions%20CI%20Setup%20Guide.md) | Automated testing and linting |
+| [ReadTheDocs Setup Guide.md](guides/ReadTheDocs%20Setup%20Guide.md) | Deploying documentation to ReadTheDocs |
 
 **Read these when:**
 - You're setting up your development environment
 - You're troubleshooting CI failures
 - You're configuring new hooks or workflows
+- You're deploying documentation to ReadTheDocs
 
 ### `images/` - Documentation Images
 
@@ -127,6 +129,79 @@ Like the generation systems themselves, documentation emphasizes bias and sugges
 ## Document Status
 
 All frontmatter has been removed from these documents. They are currently personal working notes and further refinement is needed before they can be considered complete reference documentation.
+
+---
+
+## Building the Documentation
+
+This documentation is built using **Sphinx** and hosted on **ReadTheDocs**. You can build and preview the documentation locally before pushing changes.
+
+### For Beginners: What is Sphinx?
+
+Sphinx is a tool that takes your Markdown files and Python docstrings and turns them into beautiful, searchable HTML documentation. Think of it as a website generator specifically designed for software documentation.
+
+### Quick Start: Build Documentation Locally
+
+```bash
+# 1. Install documentation tools
+pip install -e ".[docs]"
+
+# 2. Navigate to the docs directory
+cd docs
+
+# 3. Build the HTML documentation
+sphinx-build -b html . _build/html
+
+# 4. Open the documentation in your browser
+# On macOS:
+open _build/html/index.html
+# On Linux:
+xdg-open _build/html/index.html
+# On Windows:
+start _build/html/index.html
+```
+
+### What Gets Built?
+
+When you run Sphinx, it:
+1. Reads all the `.md` files in this directory
+2. Reads the `.rst` files (like `index.rst`)
+3. Extracts documentation from Python docstrings in `src/condition_axis/`
+4. Generates a complete website in `_build/html/`
+
+The built documentation includes:
+- **Searchable content** - Full-text search across all docs
+- **Navigation sidebar** - Easy browsing between sections
+- **Syntax highlighting** - Properly formatted code examples
+- **Cross-references** - Clickable links between related docs
+- **Multiple formats** - HTML (web), PDF, and ePub
+
+### Understanding the Sphinx Files
+
+- **`conf.py`** - Sphinx configuration (theme, extensions, settings)
+- **`index.rst`** - Main entry point that defines the table of contents
+- **`_build/`** - Generated documentation (git-ignored, not committed)
+- **`_static/`** - Custom CSS, JavaScript, and images for the docs
+- **`_templates/`** - Custom HTML templates (if needed)
+
+### Online Documentation (ReadTheDocs)
+
+Once connected to ReadTheDocs, this documentation is automatically built and published whenever you push to GitHub. No manual deployment needed!
+
+**Access the docs at:**
+- Latest: `https://pipeworks-conditional-axis.readthedocs.io/en/latest/`
+- Stable: `https://pipeworks-conditional-axis.readthedocs.io/en/stable/`
+
+### Troubleshooting
+
+**"sphinx-build: command not found"**
+→ Install docs dependencies: `pip install -e ".[docs]"`
+
+**"WARNING: toctree contains reference to nonexisting document"**
+→ Check that all files referenced in `index.rst` actually exist
+
+**"Build succeeded, X warnings"**
+→ Warnings are usually safe to ignore, but check them to ensure links work correctly
 
 ---
 

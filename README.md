@@ -380,6 +380,73 @@ mypy src/ --python-version=3.12 --ignore-missing-imports
 pre-commit run --all-files
 ```
 
+### Building Documentation
+
+This project uses **Sphinx** to generate professional HTML documentation from Markdown and Python docstrings. The documentation is automatically built and hosted on **ReadTheDocs** when changes are pushed to GitHub.
+
+#### What is Sphinx?
+
+Sphinx is a documentation generator that converts reStructuredText (.rst) and Markdown (.md) files into beautiful HTML documentation. It can also extract documentation from your Python code's docstrings.
+
+#### What is ReadTheDocs?
+
+ReadTheDocs is a free hosting service that automatically builds and publishes your documentation whenever you push to GitHub. It provides versioning, search, and multiple output formats (HTML, PDF, ePub).
+
+#### Building Documentation Locally
+
+To build and preview the documentation on your computer:
+
+```bash
+# Install documentation dependencies
+pip install -e ".[docs]"
+
+# Build HTML documentation
+cd docs
+sphinx-build -b html . _build/html
+
+# View the built documentation
+# Open docs/_build/html/index.html in your web browser
+# On macOS:
+open _build/html/index.html
+# On Linux:
+xdg-open _build/html/index.html
+# On Windows:
+start _build/html/index.html
+```
+
+#### Accessing Online Documentation
+
+Once this repository is connected to ReadTheDocs, the documentation will be available at:
+- **Latest version**: `https://pipeworks-conditional-axis.readthedocs.io/en/latest/`
+- **Stable version**: `https://pipeworks-conditional-axis.readthedocs.io/en/stable/`
+
+The documentation updates automatically whenever changes are pushed to the main branch.
+
+#### Documentation Structure
+
+The documentation includes:
+- **API Reference**: Complete function and module documentation (extracted from docstrings)
+- **Design & Philosophy**: Architectural principles and design decisions
+- **Technical Specifications**: Implementation details for each system
+- **Setup Guides**: Development environment and CI/CD configuration
+
+See [docs/README.md](./docs/README.md) for a complete guide to the documentation structure and reading paths.
+
+#### Contributing to Documentation
+
+To update the documentation:
+
+1. **API docs**: Edit docstrings in the Python source files (src/condition_axis/)
+2. **Markdown docs**: Edit .md files in docs/api/, docs/design/, docs/specifications/, or docs/guides/
+3. **Sphinx config**: Edit docs/conf.py or docs/index.rst
+4. **Build locally** to preview changes before committing
+5. **Push to GitHub** - ReadTheDocs will automatically rebuild and deploy
+
+For Sphinx documentation syntax, see:
+- [Sphinx documentation](https://www.sphinx-doc.org/)
+- [MyST Markdown Guide](https://myst-parser.readthedocs.io/) (for .md files)
+- [reStructuredText Primer](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html) (for .rst files)
+
 ---
 
 ## Future Work
