@@ -23,6 +23,27 @@ from condition_axis import (
     occupation_condition_to_prompt,
 )
 
+# ============================================================================
+# NOTE: Unified API for Facial Conditions (v1.1.0+)
+# ============================================================================
+# As of v1.1.0, facial conditions are integrated into character_conditions.
+# The separate generate_facial_condition() function is now deprecated but
+# maintained for backward compatibility. For new code, facial signals are
+# automatically included in generate_condition() as an optional axis.
+#
+# Old approach (still works, used in this example):
+#   character = generate_condition(seed=42)
+#   facial = generate_facial_condition(seed=42)
+#   combined = f"{condition_to_prompt(character)}, {facial_condition_to_prompt(facial)}"
+#
+# New approach (recommended):
+#   character = generate_condition(seed=42)  # May include facial_signal
+#   prompt = condition_to_prompt(character)  # Automatically includes facial_signal
+#
+# This example uses the old API to demonstrate backward compatibility.
+# See examples/migration_guide.py for migration patterns.
+# ============================================================================
+
 
 def example_1_complete_entity_generation() -> None:
     """Demonstrate generating a complete entity with all three systems.
@@ -146,25 +167,33 @@ def format_as_narrative(
     """Convert conditions to natural language narrative description.
 
     Args:
-        character: Character condition dictionary.
-        facial: Facial condition dictionary.
+        character: Character condition dictionary (may include facial_signal as of v1.1.0).
+        facial: Facial condition dictionary (deprecated, kept for backward compatibility).
         occupation: Occupation condition dictionary.
 
     Returns:
         Natural language description suitable for narrative contexts.
 
     Example:
-        >>> char = {"physique": "wiry", "wealth": "poor"}
-        >>> facial = {"overall_impression": "weathered"}
+        >>> char = {"physique": "wiry", "wealth": "poor", "facial_signal": "weathered"}
+        >>> facial = {}  # Optional, for backward compat
         >>> occ = {"legitimacy": "tolerated", "visibility": "discreet"}
         >>> format_as_narrative(char, facial, occ)
         "A wiry, poor individual with a weathered face..."
+
+    Note:
+        As of v1.1.0, facial_signal can be in the character dict (unified API).
+        This function checks both locations for backward compatibility.
     """
     # Extract key values
     physique = character.get("physique", "")
     wealth = character.get("wealth", "")
     health = character.get("health", "")
-    impression = facial.get("overall_impression", "")
+
+    # NEW: Check for facial_signal in character dict first (unified API),
+    # then fall back to facial dict (old API for backward compatibility)
+    facial_signal = character.get("facial_signal") or facial.get("facial_signal", "")
+
     legitimacy = occupation.get("legitimacy", "")
     visibility = occupation.get("visibility", "")
 
@@ -177,9 +206,9 @@ def format_as_narrative(
     elif physique:
         parts.append(f"A {physique} individual")
 
-    # Facial features
-    if impression:
-        parts.append(f"with a {impression} face")
+    # Facial features (updated to use facial_signal instead of overall_impression)
+    if facial_signal:
+        parts.append(f"with a {facial_signal} face")
 
     # Health and demeanor
     if health:
@@ -225,7 +254,7 @@ def example_4_identifying_coherence_patterns() -> None:
 
         is_young_weathered = (
             character.get("age") == "young"
-            and facial.get("overall_impression") == "weathered"
+            and facial.get("facial_signal") == "weathered"
         )
 
         is_conspicuous_hidden = (

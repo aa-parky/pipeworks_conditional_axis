@@ -171,6 +171,35 @@ def example_5_multiple_entities() -> None:
         print(f"  Character #{char_id}: {prompt}")
 
 
+def example_6_unified_facial_signals() -> None:
+    """Demonstrate integrated facial signals in character generation.
+
+    As of v1.1.0, facial signals are integrated into character generation
+    as an optional axis. They may appear alongside other character conditions.
+
+    This represents a simpler, unified API compared to the old approach of
+    generating character and facial conditions separately.
+    """
+    print("\n" + "=" * 70)
+    print("EXAMPLE 6: Unified Facial Signals (v1.1.0+)")
+    print("=" * 70)
+
+    print("\nGenerating 10 characters - some may include facial signals:\n")
+
+    for seed in range(10):
+        character = generate_condition(seed=seed)
+        prompt = condition_to_prompt(character)
+
+        has_facial = "facial_signal" in character
+        facial_indicator = " [includes facial signal]" if has_facial else ""
+
+        print(f"Character {seed}: {prompt}{facial_indicator}")
+
+    print("\nNote: Facial signals now appear as an optional axis in character generation.")
+    print("      Old API: generate_facial_condition() - still works (deprecated)")
+    print("      New API: generate_condition() - may include facial_signal")
+
+
 def main() -> None:
     """Run all basic usage examples.
 
@@ -189,6 +218,7 @@ def main() -> None:
     example_3_serialization_to_prompts()
     example_4_understanding_axes()
     example_5_multiple_entities()
+    example_6_unified_facial_signals()
 
     print("\n" + "=" * 70)
     print("All examples completed successfully!")

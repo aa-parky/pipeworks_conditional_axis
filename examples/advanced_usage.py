@@ -197,7 +197,51 @@ def example_4_analyzing_generation_patterns() -> None:
     print(f"  Age: {len(age_counts):4} / {sample_size} ({len(age_counts)/sample_size*100:.1f}%)")  # noqa: E501
 
 
-def example_5_inspecting_raw_data() -> None:
+def example_5_cross_system_exclusions() -> None:
+    """Demonstrate cross-system exclusion rules with facial signals.
+
+    As of v1.1.0, facial signals are integrated into character generation,
+    with exclusion rules preventing illogical combinations across systems.
+
+    This example tests the cross-system exclusion rule:
+    - young age cannot be paired with weathered facial signal
+    """
+    print("\n" + "=" * 70)
+    print("EXAMPLE 5: Cross-System Exclusions (Character + Facial)")
+    print("=" * 70)
+
+    print("\nTesting exclusion: young age cannot be weathered")
+    print("Generating 1000 characters...\n")
+
+    young_chars = []
+    for seed in range(1000):
+        char = generate_condition(seed=seed)
+        if char.get("age") == "young":
+            young_chars.append(char)
+
+    print(f"Found {len(young_chars)} young characters")
+
+    # Check if any have weathered facial signal (should be 0)
+    weathered_count = sum(1 for c in young_chars if c.get("facial_signal") == "weathered")
+
+    print(f"Weathered young characters: {weathered_count} (should be 0)")
+
+    if weathered_count == 0:
+        print("✓ Exclusion rule working correctly!")
+    else:
+        print("✗ Exclusion rule violation detected!")
+
+    # Show what facial signals young characters DO have
+    if young_chars:
+        facial_signals = [c.get("facial_signal") for c in young_chars if "facial_signal" in c]
+        if facial_signals:
+            signal_counts = Counter(facial_signals)
+            print(f"\nFacial signals found in young characters:")
+            for signal, count in signal_counts.most_common():
+                print(f"  {signal}: {count}")
+
+
+def example_6_inspecting_raw_data() -> None:
     """Demonstrate accessing and inspecting raw data structures.
 
     Advanced users can access:
@@ -207,7 +251,7 @@ def example_5_inspecting_raw_data() -> None:
     - AXIS_POLICY: Mandatory/optional axis configuration
     """
     print("\n" + "=" * 70)
-    print("EXAMPLE 5: Inspecting Raw Data Structures")
+    print("EXAMPLE 6: Inspecting Raw Data Structures")
     print("=" * 70)
 
     print("\nAvailable Axes and Values:")
@@ -247,7 +291,8 @@ def main() -> None:
     example_2_exclusion_rules_in_action()
     example_3_mandatory_vs_optional_axes()
     example_4_analyzing_generation_patterns()
-    example_5_inspecting_raw_data()
+    example_5_cross_system_exclusions()
+    example_6_inspecting_raw_data()
 
     print("\n" + "=" * 70)
     print("All advanced examples completed successfully!")

@@ -78,7 +78,8 @@ def test_advanced_usage_examples_run_without_errors() -> None:
         example_2_exclusion_rules_in_action,
         example_3_mandatory_vs_optional_axes,
         example_4_analyzing_generation_patterns,
-        example_5_inspecting_raw_data,
+        example_5_cross_system_exclusions,
+        example_6_inspecting_raw_data,
     )
 
     # These should not raise exceptions
@@ -86,7 +87,8 @@ def test_advanced_usage_examples_run_without_errors() -> None:
     example_2_exclusion_rules_in_action()
     example_3_mandatory_vs_optional_axes()
     example_4_analyzing_generation_patterns()
-    example_5_inspecting_raw_data()
+    example_5_cross_system_exclusions()
+    example_6_inspecting_raw_data()
 
 
 # ============================================================================
