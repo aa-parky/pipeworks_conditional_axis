@@ -54,7 +54,7 @@ Quick Start
    # {'physique': 'wiry', 'wealth': 'poor', 'health': 'weary', 'facial_signal': 'weathered'}
 
    # Note: facial_signal is an optional axis that may or may not appear
-   # As of v1.1.0, facial signals are integrated into character conditions
+   # Facial signals are integrated into character conditions
 
    # Generate occupation characteristics
    occupation_state = generate_occupation_condition(seed=42)
@@ -100,7 +100,6 @@ Quick Start
    guides/Pre-Commit Hooks Setup Guide
    guides/GitHub Actions CI Setup Guide
    guides/ReadTheDocs Setup Guide
-   guides/Migration-v1.0-to-v1.1
 
 .. toctree::
    :maxdepth: 2
@@ -150,7 +149,7 @@ The library currently provides two independent axis systems:
    - **Age**: young, middle-aged, old, ancient
    - **Facial Signal**: understated, pronounced, exaggerated, asymmetrical, weathered, soft-featured, sharp-featured
 
-   *Note: As of v1.1.0, facial signals are integrated into character conditions as an optional axis, with cross-system exclusion rules to maintain coherence.*
+   *Note: Facial signals are integrated into character conditions as an optional axis, with cross-system exclusion rules to maintain coherence.*
 
 **2. Occupation Conditions** (``occupation_axis``)
    Labor pressures and social positioning (not job titles):

@@ -82,7 +82,7 @@
 
 ### Package Publishing
 
-- [ ] Publish v1.0.0 to PyPI
+- [ ] Publish v0.10.0 to PyPI
 - [ ] Create conda package (if demand exists)
 
 ### Release Management

@@ -193,16 +193,14 @@ def example_4_analyzing_generation_patterns() -> None:
     print(
         f"  Health: {len(health_counts):4} / {sample_size} ({len(health_counts)/sample_size*100:.1f}%)"
     )
-    print(
-        f"  Age: {len(age_counts):4} / {sample_size} ({len(age_counts)/sample_size*100:.1f}%)"
-    )
+    print(f"  Age: {len(age_counts):4} / {sample_size} ({len(age_counts)/sample_size*100:.1f}%)")
 
 
 def example_5_cross_system_exclusions() -> None:
     """Demonstrate cross-system exclusion rules with facial signals.
 
-    As of v1.1.0, facial signals are integrated into character generation,
-    with exclusion rules preventing illogical combinations across systems.
+    Facial signals are integrated into character generation, with exclusion
+    rules preventing illogical combinations across systems.
 
     This example tests the cross-system exclusion rule:
     - young age cannot be paired with weathered facial signal

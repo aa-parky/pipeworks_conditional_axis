@@ -141,7 +141,7 @@ def example_2_export_to_json() -> None:
     json_data = {
         "metadata": {
             "generator": "pipeworks-conditional-axis",
-            "version": "1.0.0",
+            "version": "0.10.0",
             "start_seed": 100,
             "count": 5,
         },

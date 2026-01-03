@@ -67,7 +67,7 @@ print(full_prompt)
 # "wiry, poor, weary, weathered, tolerated, discreet, burdened"
 ```
 
-**Note**: As of v1.1.0, facial signals are integrated into `generate_condition()` as an optional axis. The separate `generate_facial_condition()` function has been removed from the public API. See the [Migration Guide](./docs/guides/Migration-v1.0-to-v1.1.md) for upgrading from v1.0.
+**Note**: Facial signals are integrated into `generate_condition()` as an optional axis. The separate `generate_facial_condition()` function is not part of the public API.
 
 ---
 
@@ -213,7 +213,7 @@ pipeworks_entity_state_generation/
 ├── src/condition_axis/         # Main package
 │   ├── __init__.py             # Public API exports
 │   ├── _base.py                # Shared utilities
-│   ├── character_conditions.py # Physical, social & facial states (unified in v1.1.0)
+│   ├── character_conditions.py # Physical, social & facial states (unified)
 │   └── occupation_axis.py      # Occupation characteristics
 │
 ├── tests/                      # Test suite (90%+ coverage)
@@ -255,8 +255,7 @@ pipeworks_entity_state_generation/
 │   ├── guides/                 # Setup & process guides
 │   │   ├── GitHub Actions CI Setup Guide.md
 │   │   ├── Pre-Commit Hooks Setup Guide.md
-│   │   ├── ReadTheDocs Setup Guide.md
-│   │   └── Migration-v1.0-to-v1.1.md  # v1.0 → v1.1 upgrade guide
+│   │   └── ReadTheDocs Setup Guide.md
 │   └── images/                 # Documentation images
 │       ├── condition_axis.jpg
 │       ├── miss_filed.jpg
@@ -369,7 +368,7 @@ print(WEIGHTS['wealth'])
 
 ### Cross-System Validation
 
-As of v1.1.0, cross-system exclusion rules are implemented between character and facial axes:
+Cross-system exclusion rules are implemented between character and facial axes:
 
 - `age="young"` + `facial_signal="weathered"` → Excluded (contradiction)
 - `wealth="decadent"` + `facial_signal="weathered"` → Excluded (wealth preserves appearance)
@@ -503,10 +502,10 @@ For Sphinx documentation syntax, see:
 
 ## Future Work
 
-### Implemented in v1.1.0 ✅
+### Current Features ✅
 
 - **Cross-system exclusion rules**: Character and facial axis exclusions implemented (young + weathered, wealth + weathered, etc.)
-- **Facial signal integration**: Merged into character_conditions with full coherence rules
+- **Facial signal integration**: Integrated into character_conditions with full coherence rules
 
 ### Planned Enhancements
 
@@ -574,8 +573,8 @@ This repository is part of the broader Pipeworks project.
 
 ### API Reference
 - [Base Utilities](./docs/api/_base.md) - Core utilities (weighted_choice, apply_exclusion_rules, values_to_prompt)
-- [Character Conditions](./docs/api/character_conditions.md) - Physical & social character state generation (includes facial signals as of v1.1.0)
-- [Facial Conditions](./docs/api/facial_conditions.md) - **DEPRECATED** - v1.0 historical reference only (merged into character_conditions in v1.1.0)
+- [Character Conditions](./docs/api/character_conditions.md) - Physical & social character state generation (includes facial signals)
+- [Facial Conditions](./docs/api/facial_conditions.md) - **DEPRECATED** - Historical reference only (merged into character_conditions)
 - [Occupation Axis](./docs/api/occupation_axis.md) - Occupation characteristics generation
 
 ### Design & Philosophy
@@ -599,7 +598,6 @@ This repository is part of the broader Pipeworks project.
 ### Setup Guides
 - [Pre-Commit Hooks Setup](./docs/guides/Pre-Commit%20Hooks%20Setup%20Guide.md) - Local development setup
 - [GitHub Actions CI Setup](./docs/guides/GitHub%20Actions%20CI%20Setup%20Guide.md) - CI/CD configuration
-- [Migration Guide v1.0 → v1.1](./docs/guides/Migration-v1.0-to-v1.1.md) - Upgrading from v1.0 to v1.1 unified API
 
 ---
 
@@ -623,10 +621,8 @@ Before submitting a PR:
 
 ## Status
 
-This library is in active development (v1.1.0).
+This library is in active development (v0.10.0 beta).
 
-Core generation systems (character with integrated facial signals, occupation) are **stable and production-ready**.
-
-**v1.1.0 Changes**: Facial signals integrated into character conditions with cross-system exclusion rules. See [Migration Guide](./docs/guides/Migration-v1.0-to-v1.1.md) for upgrading from v1.0.
+Core generation systems (character with integrated facial signals, occupation) are **stable and well-tested**.
 
 Interfaces, schemas, and axis definitions may evolve, but the core separation between state resolution (axes) and state interpretation (downstream systems) is considered foundational.

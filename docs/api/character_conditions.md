@@ -166,7 +166,7 @@ Character's position in life cycle.
 - Triggers exclusions (ancient excludes timidity)
 
 ##### `facial_signal` - Facial Perception Modifiers
-Perception modifiers that bias how a character's face is interpreted (merged from facial_conditions in v1.1.0).
+Perception modifiers that bias how a character's face is interpreted (integrated from facial_conditions module).
 
 | Value | Description | Relative Frequency |
 |-------|-------------|--------------------|
@@ -194,8 +194,8 @@ Perception modifiers that bias how a character's face is interpreted (merged fro
 - `asymmetrical` → Uneven features adding character
 - `exaggerated` → Striking, almost caricatured proportions
 
-**Integration Note** (v1.1.0):
-Prior to v1.1.0, facial signals were a separate `facial_conditions` module. They are now integrated into `character_conditions` with cross-system exclusion rules to maintain coherence with other character axes.
+**Integration Note**:
+Facial signals are integrated into `character_conditions` with cross-system exclusion rules to maintain coherence with other character axes.
 
 ---
 
@@ -391,7 +391,7 @@ EXCLUSIONS = {
 
 **Effect**: If `health=hale`, any `physique=frail` is removed.
 
-#### Rule 5: Youth contradicts weathering (v1.1.0+)
+#### Rule 5: Youth contradicts weathering
 ```python
 ("age", "young"): {
     "facial_signal": ["weathered"]
@@ -401,7 +401,7 @@ EXCLUSIONS = {
 
 **Effect**: If `age=young`, any `facial_signal=weathered` is removed.
 
-#### Rule 6: Ancient age is rarely subtle (v1.1.0+)
+#### Rule 6: Ancient age is rarely subtle
 ```python
 ("age", "ancient"): {
     "demeanor": ["timid"],
@@ -412,7 +412,7 @@ EXCLUSIONS = {
 
 **Effect**: If `age=ancient`, any `facial_signal=understated` is removed (in addition to `demeanor=timid`).
 
-#### Rule 7: Wealth preserves appearance (v1.1.0+)
+#### Rule 7: Wealth preserves appearance
 ```python
 ("wealth", "decadent"): {
     "physique": ["frail"],
@@ -424,7 +424,7 @@ EXCLUSIONS = {
 
 **Effect**: If `wealth=decadent`, any `facial_signal=weathered` is removed (in addition to existing exclusions).
 
-#### Rule 8: Health shows in appearance (v1.1.0+)
+#### Rule 8: Health shows in appearance
 ```python
 ("health", "hale"): {
     "physique": ["frail"],
@@ -435,7 +435,7 @@ EXCLUSIONS = {
 
 **Effect**: If `health=hale`, any `facial_signal=weathered` is removed.
 
-#### Rule 9: Sickness contradicts softness (v1.1.0+)
+#### Rule 9: Sickness contradicts softness
 ```python
 ("health", "sickly"): {
     "facial_signal": ["soft-featured"]

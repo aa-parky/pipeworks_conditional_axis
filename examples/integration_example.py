@@ -12,7 +12,6 @@ Run this example:
     python examples/integration_example.py
 """
 
-
 from condition_axis import (
     condition_to_prompt,
     generate_condition,
@@ -21,14 +20,12 @@ from condition_axis import (
 )
 
 # ============================================================================
-# NOTE: Unified API for Facial Conditions (v1.1.0+)
+# NOTE: Unified API for Facial Conditions
 # ============================================================================
-# As of v1.1.0, facial conditions are integrated into character_conditions.
-# The separate generate_facial_condition() function is now deprecated but
-# maintained for backward compatibility. For new code, facial signals are
-# automatically included in generate_condition() as an optional axis.
+# Facial conditions are integrated into character_conditions. Facial signals
+# are automatically included in generate_condition() as an optional axis.
 #
-# Old approach (still works, used in this example):
+# Usage:
 #   character = generate_condition(seed=42)
 #   facial = {"facial_signal": character.get("facial_signal", "")} if "facial_signal" in character else {}
 #   combined = f"{condition_to_prompt(character)}, {condition_to_prompt(facial)}"
@@ -175,7 +172,7 @@ def format_as_narrative(
     """Convert conditions to natural language narrative description.
 
     Args:
-        character: Character condition dictionary (may include facial_signal as of v1.1.0).
+        character: Character condition dictionary (may include facial_signal).
         facial: Facial condition dictionary (deprecated, kept for backward compatibility).
         occupation: Occupation condition dictionary.
 
@@ -190,7 +187,7 @@ def format_as_narrative(
         "A wiry, poor individual with a weathered face..."
 
     Note:
-        As of v1.1.0, facial_signal can be in the character dict (unified API).
+        Facial_signal can be in the character dict (unified API).
         This function checks both locations for backward compatibility.
     """
     # Extract key values
@@ -282,7 +279,9 @@ def example_4_identifying_coherence_patterns() -> None:
                     "pattern": (
                         "wealthy_illicit"
                         if is_wealthy_illicit
-                        else "young_weathered" if is_young_weathered else "contradictory"
+                        else "young_weathered"
+                        if is_young_weathered
+                        else "contradictory"
                     ),
                 }
             )

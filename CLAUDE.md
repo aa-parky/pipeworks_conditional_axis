@@ -70,7 +70,7 @@ src/condition_axis/
 └── occupation_axis.py          # Occupation characteristics
 ```
 
-**Note**: The `facial_conditions.py` module has been deprecated and merged into `character_conditions.py` as of v1.1.0. It is kept in the repository for historical reference but should not be used in new code.
+**Note**: The `facial_conditions.py` module has been deprecated and merged into `character_conditions.py`. It is kept in the repository for historical reference but should not be used in new code.
 
 ### The Axis Pattern
 
@@ -141,7 +141,7 @@ All systems provide `<type>_condition_to_prompt()` functions that convert struct
 
 ## Cross-System Integration
 
-As of v1.1.0, facial signals are integrated into the character conditions system. Cross-system exclusion rules are implemented between character axes (including facial):
+Facial signals are integrated into the character conditions system. Cross-system exclusion rules are implemented between character axes (including facial):
 
 **Implemented exclusions:**
 - `age="young"` + `facial_signal="weathered"` (contradiction)

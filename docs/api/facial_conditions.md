@@ -2,21 +2,20 @@
 
 ## ⚠️ DEPRECATED - DO NOT USE ⚠️
 
-**This documentation is for v1.0.0 ONLY and is now OBSOLETE.**
+**This documentation is for historical reference ONLY and is now OBSOLETE.**
 
-**As of v1.1.0**, facial conditions have been **merged into the character conditions system**. The functions and module documented here **no longer exist** in the public API.
+Facial conditions have been **merged into the character conditions system**. The functions and module documented here **no longer exist** in the public API.
 
 ### For Current Documentation, See:
 - **[Character Conditions API](character_conditions.md)** - Includes facial signals as an optional axis
-- **[Migration Guide](../guides/Migration-v1.0-to-v1.1.md)** - How to upgrade from v1.0 to v1.1
 
-### What Changed in v1.1.0:
+### What Changed:
 - `generate_facial_condition()` **removed** from public API
 - `facial_condition_to_prompt()` **removed** from public API
 - `facial_signal` is now an **optional axis** within `generate_condition()`
 - Cross-system exclusion rules implemented between facial signals and other character axes
 
-### New Usage (v1.1.0+):
+### Current Usage:
 ```python
 from condition_axis import generate_condition, condition_to_prompt
 
@@ -36,7 +35,7 @@ prompt = condition_to_prompt(character)
 
 **Purpose**: Generate facial signal descriptors that modulate how a character's face is perceived.
 
-**Status**: ~~Experimental standalone module~~ **MERGED into character_conditions as of v1.1.0**
+**Status**: ~~Experimental standalone module~~ **MERGED into character_conditions**
 
 This module implemented facial signals as perceptual modifiers rather than anatomical specifications. Instead of describing explicit facial features, it biased how features are interpreted by renderers and readers.
 
@@ -56,9 +55,9 @@ The facial conditions system generates perception modifiers for character faces.
 
 ---
 
-## Quick Start (v1.0.0 ONLY - DEPRECATED)
+## Quick Start (DEPRECATED - Historical Reference Only)
 
-**⚠️ This code will not work in v1.1.0+ - See deprecation notice above**
+**⚠️ This code will not work - See deprecation notice above**
 
 ```python
 # THIS CODE IS DEPRECATED AND WILL NOT WORK

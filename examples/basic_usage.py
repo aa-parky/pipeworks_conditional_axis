@@ -157,14 +157,13 @@ def example_5_multiple_entities() -> None:
 def example_6_unified_facial_signals() -> None:
     """Demonstrate integrated facial signals in character generation.
 
-    As of v1.1.0, facial signals are integrated into character generation
-    as an optional axis. They may appear alongside other character conditions.
+    Facial signals are integrated into character generation as an optional
+    axis. They may appear alongside other character conditions.
 
-    This represents a simpler, unified API compared to the old approach of
-    generating character and facial conditions separately.
+    This represents a unified API for generating complete character states.
     """
     print("\n" + "=" * 70)
-    print("EXAMPLE 6: Unified Facial Signals (v1.1.0+)")
+    print("EXAMPLE 6: Unified Facial Signals")
     print("=" * 70)
 
     print("\nGenerating 10 characters - some may include facial signals:\n")

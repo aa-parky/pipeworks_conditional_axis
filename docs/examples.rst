@@ -88,7 +88,7 @@ Combining character and occupation axis systems for complete entity generation.
 - Identifying coherence patterns
 - Entity archetype generation
 
-**Note**: As of v1.1.0, facial signals are integrated into character conditions as an optional axis.
+**Note**: Facial signals are integrated into character conditions as an optional axis.
 
 Advanced Examples
 -----------------
