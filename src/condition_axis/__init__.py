@@ -131,9 +131,7 @@ def generate_facial_condition(seed: int | None = None) -> dict[str, str]:
     from ._base import weighted_choice
 
     # Select only facial_signal to maintain backward compatibility
-    facial_signal = weighted_choice(
-        CONDITION_AXES["facial_signal"], WEIGHTS.get("facial_signal")
-    )
+    facial_signal = weighted_choice(CONDITION_AXES["facial_signal"], WEIGHTS.get("facial_signal"))
 
     return {"facial_signal": facial_signal}
 
@@ -172,8 +170,7 @@ def get_available_facial_axes() -> list[str]:
     DEPRECATED: Use get_available_axes() instead.
     """
     warnings.warn(
-        "get_available_facial_axes() is deprecated. "
-        "Use get_available_axes() instead.",
+        "get_available_facial_axes() is deprecated. " "Use get_available_axes() instead.",
         DeprecationWarning,
         stacklevel=2,
     )
@@ -186,8 +183,7 @@ def get_facial_axis_values(axis: str) -> list[str]:
     DEPRECATED: Use get_axis_values() instead.
     """
     warnings.warn(
-        "get_facial_axis_values() is deprecated. "
-        "Use get_axis_values('facial_signal') instead.",
+        "get_facial_axis_values() is deprecated. " "Use get_axis_values('facial_signal') instead.",
         DeprecationWarning,
         stacklevel=2,
     )

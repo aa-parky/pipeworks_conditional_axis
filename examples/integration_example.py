@@ -253,13 +253,11 @@ def example_4_identifying_coherence_patterns() -> None:
         )
 
         is_young_weathered = (
-            character.get("age") == "young"
-            and facial.get("facial_signal") == "weathered"
+            character.get("age") == "young" and facial.get("facial_signal") == "weathered"
         )
 
         is_conspicuous_hidden = (
-            occupation.get("visibility") == "hidden"
-            and character.get("demeanor") == "proud"
+            occupation.get("visibility") == "hidden" and character.get("demeanor") == "proud"
         )
 
         if is_wealthy_illicit or is_young_weathered or is_conspicuous_hidden:

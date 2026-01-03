@@ -351,8 +351,7 @@ def example_4_testing_exclusion_rules() -> None:
             print(f"  Seed {seed}: {magic}")
             if "manifestation" in magic:
                 print(
-                    f"    ✓ Manifestation '{magic['manifestation']}' "
-                    "is compatible with latent"
+                    f"    ✓ Manifestation '{magic['manifestation']}' " "is compatible with latent"
                 )
             break
 
@@ -377,7 +376,8 @@ def example_5_custom_axis_pattern_summary() -> None:
     print("EXAMPLE 5: Custom Axis Pattern Summary")
     print("=" * 70)
 
-    print("""
+    print(
+        """
 ╔══════════════════════════════════════════════════════════════════╗
 ║                 CUSTOM AXIS CREATION PATTERN                     ║
 ╚══════════════════════════════════════════════════════════════════╝
@@ -425,7 +425,8 @@ Possible domains to explore:
   - Post-apocalypse: survival_skill, mutation, scarcity
   - Maritime: sea_experience, weather_affinity, navigation
   - Academic: knowledge_domain, research_standing, teaching_style
-    """)
+    """
+    )
 
 
 def main() -> None:

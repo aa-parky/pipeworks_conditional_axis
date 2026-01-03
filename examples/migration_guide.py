@@ -64,7 +64,8 @@ def migration_benefits() -> None:
     print("MIGRATION BENEFITS")
     print("=" * 70)
 
-    print("""
+    print(
+        """
 1. SIMPLER API
    - One function call instead of two
    - One serialization instead of manual combining
@@ -84,7 +85,8 @@ def migration_benefits() -> None:
    - Single source of truth for character state
    - No need to manage multiple generation calls
    - Reduced API surface area
-    """)
+    """
+    )
 
 
 def main() -> None:

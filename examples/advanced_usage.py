@@ -193,8 +193,12 @@ def example_4_analyzing_generation_patterns() -> None:
         print(f"  {count} axes: {freq:4} {bar}")
 
     print("\nOptional Axes Appearance Rate:")
-    print(f"  Health: {len(health_counts):4} / {sample_size} ({len(health_counts)/sample_size*100:.1f}%)")  # noqa: E501
-    print(f"  Age: {len(age_counts):4} / {sample_size} ({len(age_counts)/sample_size*100:.1f}%)")  # noqa: E501
+    print(
+        f"  Health: {len(health_counts):4} / {sample_size} ({len(health_counts)/sample_size*100:.1f}%)"
+    )  # noqa: E501
+    print(
+        f"  Age: {len(age_counts):4} / {sample_size} ({len(age_counts)/sample_size*100:.1f}%)"
+    )  # noqa: E501
 
 
 def example_5_cross_system_exclusions() -> None:

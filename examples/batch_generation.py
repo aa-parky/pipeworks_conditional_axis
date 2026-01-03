@@ -249,9 +249,7 @@ def example_4_filtering_and_selection() -> None:
     batch = generate_batch(start_seed=0, count=batch_size)
 
     # Filter 1: Find wealthy individuals
-    wealthy = [
-        e for e in batch if e["character"].get("wealth") in ["wealthy", "decadent"]
-    ]
+    wealthy = [e for e in batch if e["character"].get("wealth") in ["wealthy", "decadent"]]
 
     print(f"\nFilter 1: Wealthy individuals")
     print(f"  Found: {len(wealthy)} / {batch_size} ({len(wealthy)/batch_size*100:.1f}%)")
@@ -328,20 +326,11 @@ def example_5_memory_efficient_streaming() -> None:
             young_count += 1
 
     print(f"\nStatistics from {large_batch_size} entities:")
-    print(
-        f"  Wealthy: {wealthy_count} "
-        f"({wealthy_count/large_batch_size*100:.1f}%)"
-    )
-    print(
-        f"  Illicit: {illicit_count} "
-        f"({illicit_count/large_batch_size*100:.1f}%)"
-    )
+    print(f"  Wealthy: {wealthy_count} " f"({wealthy_count/large_batch_size*100:.1f}%)")
+    print(f"  Illicit: {illicit_count} " f"({illicit_count/large_batch_size*100:.1f}%)")
     print(f"  Young: {young_count} ({young_count/large_batch_size*100:.1f}%)")
 
-    print(
-        f"\nMemory benefit: Processed {large_batch_size} entities "
-        "without storing them all"
-    )
+    print(f"\nMemory benefit: Processed {large_batch_size} entities " "without storing them all")
 
 
 def example_6_parallel_generation_pattern() -> None:
@@ -385,7 +374,8 @@ def example_6_parallel_generation_pattern() -> None:
         )
 
     print("\nImplementation pattern:")
-    print("""
+    print(
+        """
     # Using Python's multiprocessing:
     from multiprocessing import Pool
 
@@ -397,7 +387,8 @@ def example_6_parallel_generation_pattern() -> None:
         tasks = [(w['start_seed'], w['count']) for w in workers]
         results = pool.map(worker_task, tasks)
         all_entities = [e for batch in results for e in batch]
-    """)
+    """
+    )
 
 
 def main() -> None:
