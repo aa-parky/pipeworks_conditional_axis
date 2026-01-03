@@ -1,8 +1,7 @@
 """Basic Usage Example for Pipeworks Conditional Axis.
 
 This example demonstrates the simplest use cases for the library:
-- Generating character conditions
-- Generating facial conditions
+- Generating character conditions (including optional facial signals)
 - Generating occupation conditions
 - Converting conditions to prompt-ready strings
 - Understanding reproducibility with seeds
@@ -13,10 +12,8 @@ Run this example:
 
 from condition_axis import (
     generate_condition,
-    generate_facial_condition,
     generate_occupation_condition,
     condition_to_prompt,
-    facial_condition_to_prompt,
     occupation_condition_to_prompt,
 )
 
@@ -24,20 +21,16 @@ from condition_axis import (
 def example_1_simple_generation() -> None:
     """Demonstrate simple condition generation without seeds.
 
-    Generates conditions for character, facial, and occupation systems
+    Generates conditions for character (may include facial signals) and occupation systems
     without specifying seeds, resulting in random output each time.
     """
     print("=" * 70)
     print("EXAMPLE 1: Simple Generation (Random)")
     print("=" * 70)
 
-    # Generate character conditions (random)
+    # Generate character conditions (may include optional facial_signal)
     character = generate_condition()
     print(f"\nCharacter Conditions: {character}")
-
-    # Generate facial conditions (random)
-    facial = generate_facial_condition()
-    print(f"Facial Conditions: {facial}")
 
     # Generate occupation conditions (random)
     occupation = generate_occupation_condition()
@@ -91,28 +84,24 @@ def example_3_serialization_to_prompts() -> None:
 
     seed = 99
 
-    # Generate conditions
+    # Generate conditions (character may include facial_signal)
     character = generate_condition(seed=seed)
-    facial = generate_facial_condition(seed=seed)
     occupation = generate_occupation_condition(seed=seed)
 
     print("\nStructured Data:")
     print(f"  Character: {character}")
-    print(f"  Facial: {facial}")
     print(f"  Occupation: {occupation}")
 
     # Convert to prompt strings
     char_prompt = condition_to_prompt(character)
-    face_prompt = facial_condition_to_prompt(facial)
     occ_prompt = occupation_condition_to_prompt(occupation)
 
     print("\nSerialized Prompts:")
     print(f"  Character: '{char_prompt}'")
-    print(f"  Facial: '{face_prompt}'")
     print(f"  Occupation: '{occ_prompt}'")
 
     # Combine for complete description
-    full_prompt = f"{char_prompt}, {face_prompt}, {occ_prompt}"
+    full_prompt = f"{char_prompt}, {occ_prompt}"
     print(f"\nCombined: '{full_prompt}'")
 
 
@@ -129,19 +118,13 @@ def example_4_understanding_axes() -> None:
 
     seed = 777
 
-    # Character conditions have 5 axes
+    # Character conditions have 2-6 axes (2 mandatory + 0-4 optional including facial_signal)
     character = generate_condition(seed=seed)
     print("\nCharacter Axes:")
     for axis, value in character.items():
         print(f"  {axis}: {value}")
 
-    # Facial conditions have 1 axis
-    facial = generate_facial_condition(seed=seed)
-    print("\nFacial Axes:")
-    for axis, value in facial.items():
-        print(f"  {axis}: {value}")
-
-    # Occupation conditions have 5 axes
+    # Occupation conditions have 3-5 axes
     occupation = generate_occupation_condition(seed=seed)
     print("\nOccupation Axes:")
     for axis, value in occupation.items():
@@ -195,9 +178,9 @@ def example_6_unified_facial_signals() -> None:
 
         print(f"Character {seed}: {prompt}{facial_indicator}")
 
-    print("\nNote: Facial signals now appear as an optional axis in character generation.")
-    print("      Old API: generate_facial_condition() - still works (deprecated)")
-    print("      New API: generate_condition() - may include facial_signal")
+    print("\nNote: Facial signals appear as an optional axis in character generation.")
+    print("      The generate_condition() function may include facial_signal alongside")
+    print("      other character attributes like physique, wealth, health, demeanor, and age.")
 
 
 def main() -> None:
