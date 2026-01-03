@@ -935,7 +935,7 @@
 
 #### 5.1.1 Update Module Docstring
 
-- [ ] **Task**: Update package docstring to reflect merge
+- [x] **Task**: Update package docstring to reflect merge
 
   **File**: `src/condition_axis/__init__.py`
 
@@ -1001,7 +1001,7 @@
 
 #### 5.1.2 Add Deprecation Wrapper for generate_facial_condition()
 
-- [ ] **Task**: Create backward-compatible wrapper function
+- [x] **Task**: Create backward-compatible wrapper function
 
   **File**: `src/condition_axis/__init__.py`
 
@@ -1140,7 +1140,7 @@
 
 #### 5.1.3 Update __all__ Export List
 
-- [ ] **Task**: Update __all__ to mark deprecated exports
+- [x] **Task**: Update __all__ to mark deprecated exports
 
   **File**: `src/condition_axis/__init__.py`
 
@@ -1189,7 +1189,7 @@
 
 #### 5.2.1 Update Quick Start Example
 
-- [ ] **Task**: Update Quick Start to show unified API
+- [x] **Task**: Update Quick Start to show unified API
 
   **File**: `README.md`
 
@@ -1234,7 +1234,7 @@
 
 #### 5.2.2 Update "What Are Conditional Axes?" Section
 
-- [ ] **Task**: Update axis list to include facial signals
+- [x] **Task**: Update axis list to include facial signals
 
   **File**: `README.md`
 
@@ -1258,7 +1258,7 @@
 
 #### 5.2.3 Remove Separate Facial Conditions Section
 
-- [ ] **Task**: Remove standalone facial conditions description
+- [x] **Task**: Remove standalone facial conditions description
 
   **File**: `README.md`
 
@@ -1282,7 +1282,7 @@
 
 #### 5.2.4 Update Repository Structure Section
 
-- [ ] **Task**: Update file listing to show facial_conditions as deprecated
+- [x] **Task**: Update file listing to show facial_conditions as deprecated
 
   **File**: `README.md`
 
@@ -1303,7 +1303,7 @@
 
 #### 5.2.5 Update Semantic Exclusion Rules Section
 
-- [ ] **Task**: Add cross-system exclusion examples
+- [x] **Task**: Add cross-system exclusion examples
 
   **File**: `README.md`
 
@@ -1336,7 +1336,7 @@
 
 #### 5.2.6 Update "Adding Cross-System Exclusions" Section
 
-- [ ] **Task**: Update future work section
+- [x] **Task**: Update future work section
 
   **File**: `README.md`
 
@@ -1366,7 +1366,7 @@
 
 #### 5.3.1 Update Code Architecture Section
 
-- [ ] **Task**: Update module structure description
+- [x] **Task**: Update module structure description
 
   **File**: `CLAUDE.md`
 
@@ -1393,7 +1393,7 @@
 
 #### 5.3.2 Update Cross-System Integration Section
 
-- [ ] **Task**: Update integration documentation
+- [x] **Task**: Update integration documentation
 
   **File**: `CLAUDE.md`
 
@@ -1424,7 +1424,7 @@
 
 #### 5.4.1 Update docs/api/character_conditions.md
 
-- [ ] **Task**: Add facial_signal documentation
+- [x] **Task**: Add facial_signal documentation
 
   **File**: `docs/api/character_conditions.md`
 
@@ -1437,7 +1437,7 @@
 
 #### 5.4.2 Deprecate docs/api/facial_conditions.md
 
-- [ ] **Task**: Add deprecation notice
+- [x] **Task**: Add deprecation notice
 
   **File**: `docs/api/facial_conditions.md`
 
