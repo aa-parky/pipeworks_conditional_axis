@@ -8,7 +8,7 @@ This directory contains design documents, technical specifications, and setup gu
 Start here:
 1. [Character State Model](design/01_character_state_model.md) - Understand the core conceptual model
 2. [Pipeworks System Architecture](design/02_pipeworks_system_architecture.md) - See how components fit together **(includes architecture diagrams)**
-3. [Character Conditions Spec](specifications/condition_axis.md) - Learn the actual implementation
+3. [Character Conditions Spec](design/specifications/condition_axis.md) - Learn the actual implementation
 
 **Visual learner?** Jump straight to the [architecture diagrams](diagrams/) to see the system structure.
 
@@ -17,9 +17,9 @@ Start here:
 2. [GitHub Actions CI Setup Guide](guides/GitHub%20Actions%20CI%20Setup%20Guide.md) - CI/CD configuration
 
 ### Working on Character Generation?
-- [Character Conditions System](specifications/condition_axis.md) - Physical & social character states
-- [Occupation Axis System](specifications/occupation_axis.md) - Occupation characteristics
-- [Obey the Verb](specifications/Obey_the_Verb.md) - AI image generation prompting strategy
+- [Character Conditions System](design/specifications/condition_axis.md) - Physical & social character states
+- [Occupation Axis System](design/specifications/occupation_axis.md) - Occupation characteristics
+- [Obey the Verb](design/specifications/Obey_the_Verb.md) - AI image generation prompting strategy
 
 ---
 
@@ -42,15 +42,15 @@ Conceptual foundations and architectural decisions. These documents explain *why
 - You're making architectural decisions
 - You're wondering "why did they do it this way?"
 
-### `specifications/` - Technical Specifications
+### `design/specifications/` - Conceptual System Design
 
 Implementation details for the generation systems. These documents describe *what* the system does and *how* it works.
 
 | Document | Purpose |
 |----------|---------|
-| [condition_axis.md](specifications/condition_axis.md) | Character condition system (physique, wealth, health, demeanor, age) |
-| [occupation_axis.md](specifications/occupation_axis.md) | Occupation axis system (legitimacy, visibility, moral load, etc.) |
-| [Obey_the_Verb.md](specifications/Obey_the_Verb.md) | Image model prompting strategy (verbs > nouns) |
+| [condition_axis.md](design/specifications/condition_axis.md) | Character condition system (physique, wealth, health, demeanor, age) |
+| [occupation_axis.md](design/specifications/occupation_axis.md) | Occupation axis system (legitimacy, visibility, moral load, etc.) |
+| [Obey_the_Verb.md](design/specifications/Obey_the_Verb.md) | Image model prompting strategy (verbs > nouns) |
 
 **Read these when:**
 - You're implementing character generation features
@@ -124,14 +124,14 @@ Like the generation systems themselves, documentation emphasizes bias and sugges
 3. [Pipeworks Components](design/03_pipeworks_components.md) - Component responsibilities
 
 ### Path 2: I want to generate characters
-1. [Character Conditions Spec](specifications/condition_axis.md) - Implementation details
-2. [Occupation Axis Spec](specifications/occupation_axis.md) - Occupation system
+1. [Character Conditions Spec](design/specifications/condition_axis.md) - Implementation details
+2. [Occupation Axis Spec](design/specifications/occupation_axis.md) - Occupation system
 3. Check the main [CLAUDE.md](../CLAUDE.md) in repo root for code examples
 
 ### Path 3: I want to understand the philosophy
 1. [Goblin Laws](design/00_goblin_laws.md) - Project principles
 2. [Characters First](design/04_characters_first_narrow_door.md) - Design rationale
-3. [Obey the Verb](specifications/Obey_the_Verb.md) - Prompting philosophy
+3. [Obey the Verb](design/specifications/Obey_the_Verb.md) - Prompting philosophy
 
 ### Path 4: I want to set up my environment
 1. [Pre-Commit Hooks Setup](guides/Pre-Commit%20Hooks%20Setup%20Guide.md) - Start here
@@ -232,7 +232,7 @@ Once connected to ReadTheDocs, this documentation is automatically built and pub
 When adding or updating documentation:
 
 1. **Design docs** (`design/`) - For architectural decisions and philosophy
-2. **Specifications** (`specifications/`) - For technical implementation details
+2. **Specifications** (`design/specifications/`) - For technical implementation details
 3. **Guides** (`guides/`) - For step-by-step processes and setup instructions
 4. **Images** should go in `images/` and be referenced with relative paths
 

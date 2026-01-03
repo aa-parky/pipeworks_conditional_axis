@@ -182,7 +182,7 @@ After exploring the examples:
 
 1. Review the :doc:`API Reference <api/_base>` for detailed function documentation
 2. Read the :doc:`Design Philosophy <design/00_goblin_laws>` to understand the architectural principles
-3. Check the :doc:`Technical Specifications <specifications/condition_axis>` for implementation details
+3. Check the :doc:`Conceptual System Design <design/specifications/condition_axis>` for implementation details
 4. See ``examples/custom_axes.py`` for guidance on extending the library
 
 For more information, see:

@@ -626,4 +626,4 @@ def test_prompt_order():
 - [Facial Conditions API](./facial_conditions.md) - Facial perception modifiers
 - [Occupation Axis API](./occupation_axis.md) - Occupation characteristics
 - [Design Philosophy](../design/01_character_state_model.md) - Why axes, not flags
-- [Obey the Verb](../specifications/Obey_the_Verb.md) - Prompting strategy
+- [Obey the Verb](../design/specifications/Obey_the_Verb.md) - Prompting strategy

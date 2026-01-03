@@ -286,20 +286,20 @@ def example_5_entity_archetype_generation() -> None:
             and o.get("visibility") == "routine",
         },
         "The Hidden Scholar": {
-            "character": lambda c: c.get("wealth") == "modest"
+            "character": lambda c: c.get("wealth") in ["poor", "modest"]
             and c.get("physique") in ["skinny", "wiry", "hunched"],
             "occupation": lambda o: o.get("visibility") == "hidden"
             and o.get("moral_load") in ["neutral", "burdened"],
         },
     }
 
-    print("\nSearching for archetype matches (seeds 0-200)...\n")
+    print("\nSearching for archetype matches (seeds 0-1000000)...\n")
 
     for archetype_name, criteria in archetypes.items():
         print(f"=== {archetype_name} ===")
 
         found = False
-        for seed in range(200):
+        for seed in range(1000000):
             character = generate_condition(seed=seed)
             facial = generate_facial_condition(seed=seed)
             occupation = generate_occupation_condition(seed=seed)
@@ -317,7 +317,7 @@ def example_5_entity_archetype_generation() -> None:
                 break
 
         if not found:
-            print(f"  No match found in seeds 0-200")
+            print(f"  No match found in seeds 0-1000000")
         print()
 
 

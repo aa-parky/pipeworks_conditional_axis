@@ -888,5 +888,5 @@ This module will be merged into `character_conditions.py` when:
 - [Base Utilities API](_base.md) - Shared generation functions
 - [Character Conditions API](./character_conditions.md) - Physical & social states
 - [Occupation Axis API](./occupation_axis.md) - Occupation characteristics
-- [Obey the Verb](../specifications/Obey_the_Verb.md) - Prompting philosophy
+- [Obey the Verb](../design/specifications/Obey_the_Verb.md) - Prompting philosophy
 - [Character State Model](../design/01_character_state_model.md) - Conceptual foundation

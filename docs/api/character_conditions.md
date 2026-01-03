@@ -1050,4 +1050,4 @@ def generate_with_thread_local_rng(seed):
 - [Facial Conditions API](./facial_conditions.md) - Facial perception modifiers
 - [Occupation Axis API](./occupation_axis.md) - Occupation characteristics
 - [Character State Model](../design/01_character_state_model.md) - Conceptual foundation
-- [Condition Axis Spec](../specifications/condition_axis.md) - Technical specification
+- [Condition Axis Spec](../design/specifications/condition_axis.md) - Technical specification

@@ -96,28 +96,7 @@ Quick Start
    :maxdepth: 2
    :caption: API Reference
 
-   api/_base
-   api/character_conditions
-   api/facial_conditions
-   api/occupation_axis
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Design & Philosophy
-
-   design/00_goblin_laws
-   design/01_character_state_model
-   design/02_pipeworks_system_architecture
-   design/03_pipeworks_components
-   design/04_characters_first_narrow_door
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Technical Specifications
-
-   specifications/condition_axis
-   specifications/occupation_axis
-   specifications/Obey_the_Verb
+   api/index
 
 .. toctree::
    :maxdepth: 2
@@ -126,6 +105,12 @@ Quick Start
    guides/Pre-Commit Hooks Setup Guide
    guides/GitHub Actions CI Setup Guide
    guides/ReadTheDocs Setup Guide
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Design & Philosophy
+
+   design/index
 
 .. toctree::
    :maxdepth: 1

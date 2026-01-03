@@ -897,5 +897,5 @@ print(character['prompt'])
 - [Base Utilities API](_base.md) - Shared generation functions
 - [Character Conditions API](./character_conditions.md) - Physical & social states
 - [Facial Conditions API](./facial_conditions.md) - Facial perception modifiers
-- [Occupation Axis Spec](../specifications/occupation_axis.md) - Full specification
-- [Obey the Verb](../specifications/Obey_the_Verb.md) - Prompting philosophy
+- [Occupation Axis Spec](../design/specifications/occupation_axis.md) - Full specification
+- [Obey the Verb](../design/specifications/Obey_the_Verb.md) - Prompting philosophy

@@ -72,7 +72,7 @@ html_static_path = ["_static"]
 # Theme options
 html_theme_options = {
     "navigation_depth": 4,
-    "collapse_navigation": False,
+    "collapse_navigation": True,  # Prevents dynamic reordering
     "sticky_navigation": True,
     "includehidden": True,
     "titles_only": False,
