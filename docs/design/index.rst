@@ -14,9 +14,8 @@ Core design philosophy, architectural principles, and system thinking.
 
    00_goblin_laws
    01_character_state_model
-   02_pipeworks_system_architecture
-   03_pipeworks_components
-   04_characters_first_narrow_door
+   02_system_architecture
+   03_design_decision_characters_first
 
 Conceptual System Design
 ------------------------

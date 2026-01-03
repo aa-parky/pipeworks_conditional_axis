@@ -1,16 +1,6 @@
-# 1 Character State Model
+# Character State Model
 
-## 1.1 Pipeworks Context
-
-| Repository                                                                                             | Role in Pipeworks                                     | Relationship to this Document                                                        |
-| ------------------------------------------------------------------------------------------------------ | ----------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| pipeworks-artefact                                                                                     | Canonical Registry and memory layer for all artefacts | Defines how character states may be registered, remembered, and referenced over time |
-| [pipeworks_entity_state_generation](https://github.com/aa-parky/pipeworks_entity_state_generation.git) | Generation engine for entity and character states     | Produces the character states described by this model                                |
-| pipeworks_mud_server                                                                                   | Interactive runtime and game logic                    | Consumes registered character states during play                                     |
-| pipeworks_image_generator                                                                              | Visualisation and image synthesis                     | Interprets character states for visual representation                                |
-| the_daily_undertaking_ui                                                                               | Narrative and user-facing singularity                 | Surfaces character states and artefacts to the player                                |
-
-# 2 Conditions, Axes, and Bias in Pipeworks
+## Conditions, Axes, and Bias in Pipeworks
 
 This document defines how Pipeworks understands and describes the _state_ of a character.
 
@@ -22,7 +12,7 @@ registration, and narrative systems can operate without contradiction.
 
 ---
 
-# 3 Character State as a Concept
+# Character State as a Concept
 
 In Pipeworks, a character is not defined by a fixed set of traits or statistics. Instead, a character is understood as a **stateful composition of conditions** observed along multiple axes.
 
@@ -37,7 +27,7 @@ This allows characters to evolve, contradict themselves, or be remembered differ
 
 ---
 
-# 4 Conditions
+# Conditions
 
 A **condition** is a qualitative descriptor that captures an aspect of a character’s current state.
 
@@ -62,7 +52,7 @@ It encodes _signal_.
 
 ---
 
-# 5 Axes
+# Axes
 
 An **axis** is a bounded conceptual dimension along which one or more conditions may apply.
 
@@ -86,7 +76,7 @@ It defines _where interpretation is allowed to operate_.
 
 ---
 
-# 6 Bias, Not Definition
+# Bias, Not Definition
 
 Pipeworks deliberately avoids defining characters through fixed attributes or prohibitions.
 
@@ -115,7 +105,7 @@ Good systems shape behaviour by biasing interpretation, not by narrowing possibi
 
 ---
 
-# 7 Weighted Presence
+# Weighted Presence
 
 Conditions are not equally likely.
 
@@ -139,7 +129,7 @@ Common conditions are not guaranteed.
 
 ---
 
-# 8 Compatibility and Exclusion
+# Compatibility and Exclusion
 
 Some conditions are incompatible or contextually unlikely when combined.
 
@@ -153,7 +143,7 @@ This keeps the system expressive while avoiding obvious contradictions.
 
 ---
 
-# 9 Independence from Implementation
+# Independence from Implementation
 
 This model intentionally avoids reference to:
 
@@ -174,7 +164,7 @@ If an implementation detail contradicts this model, the implementation is wrong.
 
 ---
 
-# 10 Relationship to the Register
+# Relationship to the Register
 
 A character state is registrable.
 
@@ -195,7 +185,7 @@ This allows Pipeworks to support:
 
 ---
 
-# 11 Closing Note
+# Closing Note
 
 This model is deliberately modest.
 

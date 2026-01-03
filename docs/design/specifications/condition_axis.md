@@ -1,8 +1,8 @@
-# 1 Character Conditions System
+# Character Conditions System
 
 The Character Conditions system provides structured, rule-based character state generation for procedural content. Unlike simple text file lookups, it uses weighted probability distributions, semantic exclusion rules, and mandatory/optional axis policies to generate coherent character descriptions.
 
-## 1.1 Overview
+## Overview
 
 The system generates character states across multiple axes:
 
@@ -12,9 +12,9 @@ The system generates character states across multiple axes:
 - **Demeanor**: Behavioral presentation (timid, suspicious, resentful, alert, proud)
 - **Age**: Life stage (young, middle-aged, old, ancient)
 
-## 1.2 Key Features
+## Key Features
 
-### 1.2.1 Weighted Probability
+### Weighted Probability
 
 The system uses realistic population distributions:
 
@@ -32,7 +32,7 @@ WEIGHTS = {
 
 This creates a believable population where most characters are poor or modest, and wealthy/decadent characters are rare.
 
-### 1.2.2 Semantic Exclusions
+### Semantic Exclusions
 
 Rules prevent illogical combinations:
 
@@ -41,15 +41,15 @@ Rules prevent illogical combinations:
 - Broad, strong physiques don’t pair with sickness
 - Hale (healthy) characters shouldn’t have frail physiques
 
-### 1.2.3 Mandatory/Optional Axes
+### Mandatory/Optional Axes
 
 - **Mandatory**: Always include physique and wealth (establish baseline)
 - **Optional**: Include 0-2 additional axes (add narrative detail)
 - **Max Optional**: Prevents prompt dilution and maintains clarity
 
-# 2 Condition Axis System (Working Notes)
+# Condition Axis System (Working Notes)
 
-## 2.1 Purpose
+## Purpose
 
 This note explores the idea of **conditions as axes** rather than states, flags, or debuffs.
 
@@ -59,9 +59,9 @@ Conditions operate as *signals*, not diagnoses.
 
 ---
 
-## 2.2 Core Philosophy
+## Core Philosophy
 
-### 2.2.1 Conditions Are Not States
+### Conditions Are Not States
 
 A condition is **not**:
 
@@ -79,7 +79,7 @@ It **suggests**:
 
 ---
 
-### 2.2.2 Axes, Not Labels
+### Axes, Not Labels
 
 Each condition exists on an **axis**, not as an on/off switch.
 
@@ -97,7 +97,7 @@ It asks *“Where along this axis does interpretation tilt?”*
 
 ---
 
-### 2.2.3 Modulation Over Definition
+### Modulation Over Definition
 
 Conditions **modulate resolution**, they do not define outcomes.
 
@@ -117,9 +117,9 @@ This preserves play, ambiguity, and emergence.
 
 ---
 
-## 2.3 Behavioural Effects
+## Behavioural Effects
 
-### 2.3.1 Conditions Bias Interpretation
+### Conditions Bias Interpretation
 
 Good systems shape behaviour by **biasing interpretation**, not by narrowing possibility.
 
@@ -138,7 +138,7 @@ It is **data**.
 
 ---
 
-### 2.3.2 Conditions Can Coexist
+### Conditions Can Coexist
 
 Multiple axes may be active simultaneously.
 
@@ -154,9 +154,9 @@ No single axis should dominate resolution unless deliberately designed to.
 
 ---
 
-## 2.4 System Perspective
+## System Perspective
 
-### 2.4.1 Observed, Not Owned
+### Observed, Not Owned
 
 Conditions are not something a character *has*.
 
@@ -178,7 +178,7 @@ what has happened leaves traces.
 
 ---
 
-### 2.4.2 No Hard Locks
+### No Hard Locks
 
 Conditions should rarely — if ever — hard-lock actions.
 
@@ -195,9 +195,9 @@ Interpretation is where weight lives.
 
 ---
 
-## 2.5 Design Implications
+## Design Implications
 
-### 2.5.1 Conditions as Resolution Inputs
+### Conditions as Resolution Inputs
 
 In resolution logic, conditions act as:
 
@@ -216,7 +216,7 @@ Nothing hidden. Everything accountable.
 
 ---
 
-### 2.5.2 Language Matters
+### Language Matters
 
 Condition language should avoid:
 
@@ -234,7 +234,7 @@ Conditions should feel *observed*, not *assigned*.
 
 ---
 
-## 2.6 Status
+## Status
 
 This is a **conceptual foundation**, not a final system.
 

@@ -1,4 +1,4 @@
-# 1 Part 1 — Baseline Occupation Axis Bundle (Template)
+# Part 1 — Baseline Occupation Axis Bundle (Template)
 
 This is the **minimum viable bundle** that:
 
@@ -11,7 +11,7 @@ Think of this as the _ledger header_ for an occupation.
 
 ---
 
-## 1.1 Occupation Axis Bundle (v0.1)
+## Occupation Axis Bundle (v0.1)
 
 Each occupation expresses **pressure**, not identity, across five axes.
 
@@ -25,7 +25,7 @@ occupation_axis = {
 }
 ```
 
-### 1.1.1 Why These Five (brief rationale)
+### Why These Five (brief rationale)
 
 - **Legitimacy** → posture, confidence, dress coherence
 - **Visibility** → lighting, eye-line, staging
@@ -45,7 +45,7 @@ They only say _what living with it feels like_.
 
 ---
 
-## 1.2 Axis Language Rule (important)
+## Axis Language Rule (important)
 
 Axis values must be:
 
@@ -59,7 +59,7 @@ Axis values must be:
 
 ---
 
-# 2 Part 2 — 10 Whimsical Goblin Occupation Archetypes
+# Part 2 — 10 Whimsical Goblin Occupation Archetypes
 
 Each archetype includes:
 
@@ -70,7 +70,7 @@ I’ll keep the prose light but _very goblin_.
 
 ---
 
-## 2.1 Fishing Lure Tuner
+## Fishing Lure Tuner
 
 **Axis Bundle**
 
@@ -92,7 +92,7 @@ I’ll keep the prose light but _very goblin_.
 
 ---
 
-## 2.2 Corpse Collector
+## Corpse Collector
 
 **Axis Bundle**
 
@@ -114,7 +114,7 @@ I’ll keep the prose light but _very goblin_.
 
 ---
 
-## 2.3 Graveward Bell Ringer
+## Graveward Bell Ringer
 
 (One who signals deaths, funerals, disturbances)
 
@@ -138,7 +138,7 @@ I’ll keep the prose light but _very goblin_.
 
 ---
 
-## 2.4 Mushroom Taxonomist
+## Mushroom Taxonomist
 
 **Axis Bundle**
 
@@ -160,7 +160,7 @@ I’ll keep the prose light but _very goblin_.
 
 ---
 
-## 2.5 Soul Ledger Clerk
+## Soul Ledger Clerk
 
 (Notice: _not_ “Soul Trader”)
 
@@ -184,7 +184,7 @@ I’ll keep the prose light but _very goblin_.
 
 ---
 
-## 2.6 Boundary Marker
+## Boundary Marker
 
 (One who maintains wards, borders, signs)
 
@@ -208,7 +208,7 @@ I’ll keep the prose light but _very goblin_.
 
 ---
 
-## 2.7 Whisper-Net Maintainer
+## Whisper-Net Maintainer
 
 (Rumours, messages, informal comms)
 
@@ -232,7 +232,7 @@ I’ll keep the prose light but _very goblin_.
 
 ---
 
-## 2.8 Relic Dust Cleaner
+## Relic Dust Cleaner
 
 **Axis Bundle**
 
@@ -254,7 +254,7 @@ I’ll keep the prose light but _very goblin_.
 
 ---
 
-## 2.9 Apprentice Rune-Filer
+## Apprentice Rune-Filer
 
 **Axis Bundle**
 
@@ -276,7 +276,7 @@ I’ll keep the prose light but _very goblin_.
 
 ---
 
-## 2.10 Unofficial Problem Resolver
+## Unofficial Problem Resolver
 
 (This one’s very you.)
 
@@ -300,7 +300,7 @@ I’ll keep the prose light but _very goblin_.
 
 ---
 
-# 3 Why This Works (quietly)
+# Why This Works (quietly)
 
 - The **axis template is stable**
 - Archetypes differ by _pressure pattern_, not lore

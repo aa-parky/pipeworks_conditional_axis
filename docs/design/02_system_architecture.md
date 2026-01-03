@@ -1,8 +1,8 @@
-# 1 Pipeworks System Architecture
+# Pipeworks System Architecture
 
-## 1.1 A Holistic View of Repositories, Responsibilities, and Data Flow
+## Overview
 
-This document describes how the Pipeworks ecosystem fits together at a system level: the role of each repository, the direction of data flow, and the high-level integration contracts between components.
+This document describes how the Pipeworks ecosystem fits together: the five primary components, their responsibilities, the direction of data flow, and the integration contracts between them.
 
 It is not a protocol specification.
 
@@ -10,23 +10,11 @@ It is not an API reference.
 
 It is not a per-repo implementation guide.
 
-It exists to keep the system comprehensible as it grows.
+It exists to keep the system comprehensible as it grows, providing a single stable point of architectural orientation.
 
 ---
 
-## 1.2 Pipeworks Context
-
-| Repository                        | Role in Pipeworks                                     | Relationship to this Document                                                    |
-| --------------------------------- | ----------------------------------------------------- | -------------------------------------------------------------------------------- |
-| pipeworks-artefact                | Canonical Registry and memory layer for all artefacts | Defines identity, registration, and what may be persisted and resurfaced         |
-| pipeworks_entity_state_generation | Generation engine for entity and character states     | Produces entity state snapshots from artefact identity and configuration         |
-| pipeworks_mud_server              | Interactive runtime and game logic                    | Consumes entity states to run the world, respond to players, and manage sessions |
-| pipeworks_image_generator         | Visualisation and image synthesis                     | Interprets entity states to generate images (on-demand or batch)                 |
-| the_daily_undertaking_ui          | Narrative and user-facing singularity                 | Presents world state, narrative, and images to the player                        |
-
----
-
-# 2 Core Philosophy
+# Core Philosophy
 
 Pipeworks is built around **separation of concerns**.
 
@@ -45,11 +33,11 @@ The real-world architecture documents do not.
 
 ---
 
-# 3 Architecture at a Glance
+# Architecture at a Glance
 
 Pipeworks is best understood as a pipeline. Data flows primarily in one direction through a set of transformation stages.
 
-## 3.0 System Architecture Diagrams
+## System Architecture Diagrams
 
 Three complementary diagrams visualize the Pipeworks ecosystem from different perspectives:
 
@@ -90,30 +78,163 @@ Shows a concrete example: how a character appears and is shown to the player.
 - Shows the interaction loop: player actions feed back into the MUD
 - Demonstrates how pure and stateful zones interact in practice
 
-## 3.1 The Data Pipeline
+---
 
-1. **Registry (pipeworks-artefact)**
-   The canonical source of truth for what exists (or is missing). Provides stable identity and minimal metadata.
+# The Five Components
 
-2. **Generation Engine (pipeworks_entity_state_generation)**
-   Takes identity + configuration and produces a resolved **entity state** (conditions, quirks, derived flags, generation metadata).
+Each component has a distinct responsibility and fits into the overall data pipeline.
 
-3. **MUD Server (pipeworks_mud_server)**
-   Consumes entity state to instantiate and operate a living world: game logic, interactions, persistence of the _world_, and player sessions.
+## pipeworks-artefact: The Registry Layer
 
-4. **Image Generator (pipeworks_image_generator)**
-   Consumes entity state (plus context when useful) to generate a visual representation and associated metadata.
+The artefact repository provides the **canonical register** for Pipeworks.
 
-5. **UI (the_daily_undertaking_ui)**
-   The singularity: presents narrative and world state to the player, blending text, interaction, and imagery.
+Its responsibility is not behaviour, simulation, or narrative.
+Its responsibility is **memory**.
+
+The registry records:
+
+- that something exists (or existed)
+- what kind of thing it is
+- when it was registered or last observed
+- minimal descriptive context
+
+It does not attempt to fully describe or explain artefacts.
+It provides stable identity and continuity so that other systems can safely refer to the same thing over time.
+
+If an entity appears anywhere in Pipeworks, it should be possible to trace it back to an artefact entry.
+
+**Pipeline position:** Provides canonical identity (entry point)
 
 ---
 
-# 4 Transition Zones (Where the System Hands Off)
+## pipeworks_entity_state_generation: The Generation Engine
+
+The generation engine is responsible for **producing entity state**.
+
+Given:
+
+- an artefact identity
+- configuration
+- conditional axes
+- weights and quirks
+
+it produces a **resolved state snapshot** describing what that entity is like at a particular moment.
+
+The generation engine:
+
+- is intentionally pure
+- does not store long-term memory
+- does not manage identity lifecycle
+- does not know how or where the state will be used
+
+It answers the question:
+
+> _"Given what this thing is, what is it like right now?"_
+
+**Pipeline position:** Transforms identity into resolved state
+
+---
+
+## pipeworks_mud_server: The Interactive Runtime
+
+The MUD server is the **heart of the live system**.
+
+It consumes entity state and:
+
+- places entities into a world
+- manages player sessions
+- enforces game logic
+- evolves world state over time
+- responds to player actions
+
+Unlike the generation engine, the MUD server is expected to be:
+
+- stateful
+- situational
+- adaptive
+
+It is where chaos is allowed — and controlled.
+
+The MUD server does not generate entities from scratch and does not own canonical identity.
+It operates on what has already been defined and generated.
+
+**Pipeline position:** Runs the living world (stateful transition point)
+
+---
+
+## pipeworks_image_generator: The Visualisation Layer
+
+The image generator creates **visual representations** of entities.
+
+It consumes:
+
+- entity state snapshots
+- optional contextual information
+
+and produces:
+
+- images
+- associated generation metadata
+
+The image generator:
+
+- does not own narrative meaning
+- does not manage world state
+- does not decide when images are required
+
+It exists to translate state into imagery when requested by upstream systems.
+
+**Pipeline position:** Produces visual representations on demand
+
+---
+
+## the_daily_undertaking_ui: The Narrative Singularity
+
+The Daily Undertaking UI is the **only place where everything comes together**.
+
+It is:
+
+- player-facing
+- narrative-driven
+- allowed to gossip across layers
+
+The UI:
+
+- receives world state and narrative from the MUD server
+- displays images generated elsewhere
+- surfaces artefacts and characters to the player
+- presents the world as a coherent experience
+
+Unlike the other components, the UI is not required to be restrained.
+Its job is to _feel alive_.
+
+**Pipeline position:** Converges all flows for player experience (singularity)
+
+---
+
+# Component Integration
+
+## How the Pipeline Flows
+
+At a high level, Pipeworks operates as a directional pipeline:
+
+1. **Artefacts are registered** (Registry)
+2. **Entity state is generated** (Generator)
+3. **The world is run interactively** (MUD)
+4. **Images are produced as needed** (Image Gen)
+5. **The experience is presented to the player** (UI)
+
+Each component:
+
+- does one job
+- hands off cleanly
+- avoids reaching backward into other layers
+
+## Transition Zones (Where the System Hands Off)
 
 Pipeworks remains manageable if hand-offs are explicit. Each boundary has a contract and an expected direction of responsibility.
 
-## 4.1 Registry → Generation Engine
+### Registry → Generation Engine
 
 **Contract (high level):**
 
@@ -122,10 +243,10 @@ Pipeworks remains manageable if hand-offs are explicit. Each boundary has a cont
 
 **Responsibility split:**
 
-- Registry: “this exists / existed / is missing”
-- Generator: “this is what it is like _right now_”
+- Registry: "this exists / existed / is missing"
+- Generator: "this is what it is like _right now_"
 
-## 4.2 Generation Engine → MUD Server
+### Generation Engine → MUD Server
 
 **Contract (high level):**
 
@@ -137,7 +258,7 @@ Pipeworks remains manageable if hand-offs are explicit. Each boundary has a cont
 - Generator: produces state (pure, reproducible)
 - MUD: uses state (situational, interactive, evolving)
 
-## 4.3 MUD Server → Image Generator
+### MUD Server → Image Generator
 
 **Contract (high level):**
 
@@ -149,7 +270,7 @@ Pipeworks remains manageable if hand-offs are explicit. Each boundary has a cont
 - MUD: decides when imagery is needed and what context matters
 - Image generator: produces visuals deterministically or acceptably-repeatably
 
-## 4.4 MUD Server ↔ UI
+### MUD Server ↔ UI
 
 **Contract (high level):**
 
@@ -162,7 +283,7 @@ Pipeworks remains manageable if hand-offs are explicit. Each boundary has a cont
 - WebSocket for continuous play / live updates is acceptable
 - The interface should remain thin: the UI does not own world logic
 
-## 4.5 Image Generator → UI
+### Image Generator → UI
 
 **Contract (high level):**
 
@@ -171,11 +292,11 @@ Pipeworks remains manageable if hand-offs are explicit. Each boundary has a cont
 
 ---
 
-# 5 Data Contracts: What Moves Between Components
+# Data Contracts: What Moves Between Components
 
 This section defines the _shape_ of interop without specifying schemas.
 
-## 5.1 Artefact Identity (Registry output)
+## Artefact Identity (Registry output)
 
 Artefact identity is:
 
@@ -185,7 +306,7 @@ Artefact identity is:
 
 Example: `artf_mistress_of_mayhem`
 
-## 5.2 Entity State (Generation output)
+## Entity State (Generation output)
 
 Entity state is a snapshot that typically includes:
 
@@ -194,11 +315,11 @@ Entity state is a snapshot that typically includes:
 - derived flags used by downstream systems
 - generation metadata (seed, version, timestamp)
 
-Entity state is not “the character forever.”
+Entity state is not "the character forever."
 
-It is “the character _as generated for this moment_.”
+It is "the character _as generated for this moment_."
 
-## 5.3 World State and Narrative (MUD output)
+## World State and Narrative (MUD output)
 
 The MUD provides:
 
@@ -210,11 +331,11 @@ The MUD may persist world evolution independent of generator purity.
 
 ---
 
-# 6 Example Flows
+# Example Flows
 
 These examples illustrate system intent without locking implementation.
 
-## 6.1 Character Appears and Is Shown
+## Character Appears and Is Shown
 
 1. Registry records a character artefact (ID exists)
 2. Generation Engine produces entity state for that ID
@@ -222,29 +343,43 @@ These examples illustrate system intent without locking implementation.
 4. Image generator produces a visual for the entity state (on-demand)
 5. UI presents narrative + image to the player
 
-## 6.2 Player Interaction
+## Player Interaction
 
-1. UI sends a player action (e.g., “talk to goblin”)
+1. UI sends a player action (e.g., "talk to goblin")
 2. MUD processes action using world state + entity state influences
 3. MUD returns narrative outcome (+ any updated state references)
 4. UI displays results
 
 ---
 
-# 7 Key System Properties (Targets, Not Dogma)
+# Boundary Discipline
+
+The system remains manageable because boundaries are respected:
+
+- The registry remembers, but does not simulate
+- The generator describes, but does not persist
+- The MUD runs the world, but does not redefine entities
+- The image layer visualises, but does not narrate
+- The UI narrates, but does not govern the world
+
+If a concern feels like it belongs to more than one component, it probably belongs in **none of them yet**.
+
+---
+
+# Key System Properties (Targets, Not Dogma)
 
 - **Decoupling:** Components rely on contracts, not internal structures.
 - **Reproducibility where useful:** The generator can be deterministic given the same inputs.
 - **Extensibility:** New pipeline components may be added without rewriting existing ones.
 - **Traceability:** When the system changes, we can say what changed and why.
 
-Note: “statelessness” applies most strongly to the generator and image layer.
+Note: "statelessness" applies most strongly to the generator and image layer.
 
 The MUD server and UI are expected to be sessionful.
 
 ---
 
-# 8 Non-Goals
+# Non-Goals
 
 To avoid architectural drift, this document explicitly does not attempt to:
 
@@ -258,7 +393,7 @@ Those details belong in component repositories and focused contract documents.
 
 ---
 
-# 9 Future Extensions
+# Future Extensions
 
 Pipeworks may later add additional pipeline components (examples only):
 
@@ -274,10 +409,20 @@ Any new component should integrate by:
 
 ---
 
-# 10 Closing Note
+# Closing Note
 
-This architecture is intentionally simple at the top level.
+Pipeworks is deliberately boring at the architectural level.
 
-Simplicity here is what allows complexity in play.
+That boredom is what allows the in-world system to be strange, surprising, and alive.
+
+When in doubt:
+
+- clarify the boundary
+- respect the hand-off
+- resist cleverness
+
+This architecture is intentionally simple at the top level. Simplicity here is what allows complexity in play.
 
 Pipeworks can be chaotic in-world because it is disciplined out-of-world.
+
+The chaos belongs on the inside.

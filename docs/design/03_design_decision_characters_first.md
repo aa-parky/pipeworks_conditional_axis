@@ -1,19 +1,17 @@
-# 1 Characters First: A Narrow Door into the Register
+# Design Decision: Characters First
 
 > _This document records a deliberate early decision in the design of the Pipeworks Register:
 > to introduce characters as the first specialised artefact domain, without abandoning the principle that everything is, ultimately, an artefact._
-
-This is not an optimisation.
-
-It is a sequencing choice.
-
-Future readers (including future-us) are encouraged to read this document before questioning the structure.
+>
+> _This was a narrow door into the Register—a deliberate sequencing choice, not an optimisation._
+>
+> _Future readers (including future-us) are encouraged to read this document before questioning the structure._
 
 ---
 
-## 1.1 Boundary Contract
+## Boundary Contract
 
-### 1.1.1 What Character Generation Hands to the Register
+### What Character Generation Hands to the Register
 
 The[ pipeworks_entity_state_generation ](https://github.com/aa-parky/pipeworks_entity_state_generation.git) project is responsible for **how characters come to be**.
 
@@ -21,7 +19,7 @@ The `pipeworks-artefact` project is responsible for **that a character exists**.
 
 These responsibilities must not blur.
 
-### 1.1.2 Character Generation Responsibilities
+### Character Generation Responsibilities
 
 Character generation:
 
@@ -32,7 +30,7 @@ Character generation:
 
 Its output is a _snapshot_, not a commitment.
 
-### 1.1.3 The Hand-off Object (Conceptual)
+### The Hand-off Object (Conceptual)
 
 Character generation hands the Register a package containing:
 
@@ -51,7 +49,7 @@ It does **not**:
 
 The Register decides what happens next.
 
-### 1.1.4 Register Responsibilities
+### Register Responsibilities
 
 Upon receiving a generated character state, the Register may:
 
@@ -66,9 +64,9 @@ It does not judge.
 
 ---
 
-## 1.2 The Minimal Character Table
+## The Minimal Character Table
 
-### 1.2.1 A Specialisation That Still Belongs to the Artefact World
+### A Specialisation That Still Belongs to the Artefact World
 
 Although all things are artefacts in principle, this project introduces a **character-specific table early** as a practical concession.
 
@@ -76,7 +74,7 @@ This does not violate the artefact model.
 
 It demonstrates it.
 
-### 1.2.2 Why a Character Table Exists
+### Why a Character Table Exists
 
 Characters:
 
@@ -90,7 +88,7 @@ Attempting to model this cleanly inside a single generic table too early would i
 
 The character table exists to make early work **tractable**, not permanent.
 
-### 1.2.3 Conceptual Structure (Non-SQL)
+### Conceptual Structure (Non-SQL)
 
 At minimum, a character record captures:
 
@@ -108,7 +106,7 @@ The character table does not replace the Register.
 
 It **folds back into it**.
 
-### 1.2.4 Folding Back into Artefact Thinking
+### Folding Back into Artefact Thinking
 
 The governing rule is:
 
@@ -131,9 +129,9 @@ This is the litmus test.
 
 ---
 
-## 1.3 Why Characters First
+## Why Characters First
 
-### 1.3.1 A Note for Future-Us
+### A Note for Future-Us
 
 Characters are not philosophically privileged.
 
@@ -171,7 +169,7 @@ Characters came first so the Register could learn to remember.
 
 ---
 
-## 1.4 Closing Note
+## Closing Note
 
 This document exists to prevent architectural amnesia.
 

@@ -1,8 +1,8 @@
-# 1 **The Model Obeys Verbs and Conditions, Not Nouns**
+# **The Model Obeys Verbs and Conditions, Not Nouns**
 
 _Notes on Job Titles, Occupation Design, and Prompt Nudging_
 
-## 1.1 **Summary (Read This First)**
+## **Summary (Read This First)**
 
 Image-generation models do **not** primarily reason about _job titles_.
 
@@ -18,7 +18,7 @@ This principle underpins the design of the occupation axis, archetype bundles, a
 
 ---
 
-## 1.2 **The Common Mistake: Title-First Prompting**
+## **The Common Mistake: Title-First Prompting**
 
 A frequent failure mode in prompting is assuming that naming a role is sufficient:
 
@@ -45,18 +45,18 @@ If the prompt does not answer these questions, the model defaults to:
 
 ---
 
-## 1.3 **What The Model Actually Responds To**
+## **What The Model Actually Responds To**
 
 Through testing, a consistent pattern emerges:
 
-### 1.3.1 **The Model Responds Strongly to:**
+### **The Model Responds Strongly to:**
 
 - **Verbs** (writing, sorting, lifting, recording, repairing, observing)
 - **Conditions** (heavy, unavoidable, discreet, corrosive, tolerated)
 - **Material cues** (tools, desks, boxes, ledgers, debris)
 - **Posture and repetition** (hunched, routine, methodical)
 
-### 1.3.2 **The Model Responds Weakly to:**
+### **The Model Responds Weakly to:**
 
 - Abstract job titles
 - Fictional institutional language
@@ -68,7 +68,7 @@ it encodes _how work is experienced_, not what it is called.
 
 ---
 
-## 1.4 **The Safe Pattern: Activity-First, Title-Second**
+## **The Safe Pattern: Activity-First, Title-Second**
 
 To reliably nudge the model, occupation prompts should follow this structure:
 
@@ -76,7 +76,7 @@ To reliably nudge the model, occupation prompts should follow this structure:
 [Activity Anchor] + [Condition Axis] (+ optional Job Title)
 ```
 
-### 1.4.1 **Example (Effective)**
+### **Example (Effective)**
 
 > “Their work is questioned, discreet, heavy, unavoidable, corrosive as they busy themselves with their tasks.”
 
@@ -92,11 +92,11 @@ The title rides on top of an already legible activity.
 
 ---
 
-## 1.5 **Whimsical Job Titles: When They Work**
+## **Whimsical Job Titles: When They Work**
 
 Whimsical or fictional occupations are **safe** _only_ when they decompose into mundane activities.
 
-### 1.5.1 **Good (Activity-Legible)**
+### **Good (Activity-Legible)**
 
 | **Job Title**     | **Implied Activities**           |
 | ----------------- | -------------------------------- |
@@ -105,7 +105,7 @@ Whimsical or fictional occupations are **safe** _only_ when they decompose into 
 | Dream Tallyman    | observing, noting, waiting       |
 | Rust Registrar    | inspecting, marking, cataloguing |
 
-### 1.5.2 **Risky (Activity-Ambiguous)**
+### **Risky (Activity-Ambiguous)**
 
 | **Job Title**    | **Problem**        |
 | ---------------- | ------------------ |
@@ -119,7 +119,7 @@ the model probably can’t either.
 
 ---
 
-## 1.6 **Why Conditions Matter More Than Titles**
+## **Why Conditions Matter More Than Titles**
 
 Conditions such as:
 
@@ -144,7 +144,7 @@ This is intentional.
 
 ---
 
-## 1.7 **Design Implication for The Undertaking**
+## **Design Implication for The Undertaking**
 
 In-world, this implies something important:
 
@@ -161,7 +161,7 @@ This aligns perfectly with:
 
 ---
 
-## 1.8 **Practical Heuristic (Use This)**
+## **Practical Heuristic (Use This)**
 
 Before introducing a new job title, ask:
 
@@ -172,7 +172,7 @@ Before introducing a new job title, ask:
 
 ---
 
-## 1.9 **Final Rule (Put This on a Wall)**
+## **Final Rule (Put This on a Wall)**
 
 > **Image models obey verbs and conditions, not nouns.**
 
