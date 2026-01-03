@@ -103,7 +103,7 @@
 
 ### 2.1 Add facial_signal to CONDITION_AXES
 
-- [ ] **Task**: Add `facial_signal` axis to `CONDITION_AXES` dict
+- [x] **Task**: Add `facial_signal` axis to `CONDITION_AXES` dict
 
   **File**: `src/condition_axis/character_conditions.py`
 
@@ -144,7 +144,7 @@
 
 ### 2.2 Update AXIS_POLICY
 
-- [ ] **Task**: Add `facial_signal` to optional axes
+- [x] **Task**: Add `facial_signal` to optional axes
 
   **File**: `src/condition_axis/character_conditions.py`
 
@@ -173,7 +173,7 @@
 
 ### 2.3 Add Facial Weights to WEIGHTS
 
-- [ ] **Task**: Add `facial_signal` weights to `WEIGHTS` dict
+- [x] **Task**: Add `facial_signal` weights to `WEIGHTS` dict
 
   **File**: `src/condition_axis/character_conditions.py`
 
@@ -221,7 +221,7 @@
 
 ### 2.4 Add Cross-System Exclusions
 
-- [ ] **Task**: Add cross-system exclusion rules for facial signals
+- [x] **Task**: Add cross-system exclusion rules for facial signals
 
   **File**: `src/condition_axis/character_conditions.py`
 
@@ -271,7 +271,7 @@
 
 ### 2.5 Update Module Docstring
 
-- [ ] **Task**: Update character_conditions.py module docstring
+- [x] **Task**: Update character_conditions.py module docstring
 
   **File**: `src/condition_axis/character_conditions.py`
 
@@ -324,7 +324,7 @@
 
 ### 2.6 Update get_available_axes() Return
 
-- [ ] **Task**: Verify `get_available_axes()` includes facial_signal
+- [x] **Task**: Verify `get_available_axes()` includes facial_signal
 
   **File**: `src/condition_axis/character_conditions.py`
 
@@ -363,7 +363,7 @@
 
 #### 3.1.1 Update Data Structure Tests
 
-- [ ] **Task**: Update `test_condition_axes_structure()` expectations
+- [x] **Task**: Update `test_condition_axes_structure()` expectations
 
   **File**: `tests/test_character_conditions_axis.py`
 
@@ -382,7 +382,7 @@
 
 #### 3.1.2 Update Policy Tests
 
-- [ ] **Task**: Update policy tests for facial_signal in optional
+- [x] **Task**: Update policy tests for facial_signal in optional
 
   **File**: `tests/test_character_conditions_axis.py`
 
@@ -415,7 +415,7 @@
 
 #### 3.1.3 Update Weights Tests
 
-- [ ] **Task**: Add test for facial_signal weights
+- [x] **Task**: Add test for facial_signal weights
 
   **File**: `tests/test_character_conditions_axis.py`
 
@@ -436,7 +436,7 @@
 
 #### 3.1.4 Add Cross-System Exclusion Tests
 
-- [ ] **Task**: Add tests for new cross-system exclusions
+- [x] **Task**: Add tests for new cross-system exclusions
 
   **File**: `tests/test_character_conditions_axis.py`
 
@@ -505,7 +505,7 @@
 
 #### 3.1.5 Add Facial Signal Integration Tests
 
-- [ ] **Task**: Add tests verifying facial_signal can be generated
+- [x] **Task**: Add tests verifying facial_signal can be generated
 
   **File**: `tests/test_character_conditions_axis.py`
 
@@ -547,7 +547,7 @@
 
 ### 3.2 Deprecate test_facial_conditions_axis.py
 
-- [ ] **Task**: Add deprecation notice to test_facial_conditions_axis.py
+- [x] **Task**: Add deprecation notice to test_facial_conditions_axis.py
 
   **File**: `tests/test_facial_conditions_axis.py`
 
@@ -584,7 +584,7 @@
 
 ### 3.3 Update test_examples.py
 
-- [ ] **Task**: Update example tests to reflect merged API
+- [x] **Task**: Update example tests to reflect merged API
 
   **File**: `tests/test_examples.py`
 
