@@ -51,14 +51,6 @@
 - [x] Create `.github/workflows/lint.yml` - Run black, ruff, mypy checks
 - [x] Create `.github/workflows/coverage.yml` - Generate and report coverage
 - [x] Create `.github/workflows/publish.yml` - Publish to PyPI on release
-- [ ] Set up branch protection rules requiring passing checks
-
-### Release Management
-
-- [ ] Create CHANGELOG.md template
-- [ ] Document versioning strategy (semantic versioning)
-- [ ] Set up GitHub release automation
-- [ ] Create release checklist
 
 ## Phase 4: Extensibility & Advanced Features
 
@@ -92,8 +84,14 @@
 
 - [ ] Publish v1.0.0 to PyPI
 - [ ] Create conda package (if demand exists)
-- [ ] Set up package versioning and changelog
-- [ ] Create release notes template
+
+### Release Management
+
+- [ ] Create CHANGELOG.md template
+- [ ] Document versioning strategy (semantic versioning)
+- [ ] Set up GitHub release automation
+- [ ] Create release checklist
+- [ ] Set up branch protection rules requiring passing checks
 
 ### Community Resources
 
