@@ -7,8 +7,10 @@ This directory contains design documents, technical specifications, and setup gu
 ### New to the Project?
 Start here:
 1. [Character State Model](design/01_character_state_model.md) - Understand the core conceptual model
-2. [Pipeworks System Architecture](design/02_pipeworks_system_architecture.md) - See how components fit together
+2. [Pipeworks System Architecture](design/02_pipeworks_system_architecture.md) - See how components fit together **(includes architecture diagrams)**
 3. [Character Conditions Spec](specifications/condition_axis.md) - Learn the actual implementation
+
+**Visual learner?** Jump straight to the [architecture diagrams](diagrams/) to see the system structure.
 
 ### Setting Up Development?
 1. [Pre-Commit Hooks Setup Guide](guides/Pre-Commit%20Hooks%20Setup%20Guide.md) - Local development setup
@@ -70,6 +72,26 @@ Step-by-step instructions for setting up development tools and CI/CD.
 - You're troubleshooting CI failures
 - You're configuring new hooks or workflows
 - You're deploying documentation to ReadTheDocs
+
+### `diagrams/` - Architecture Diagrams
+
+Visual representations of the Pipeworks system architecture.
+
+| Diagram | Purpose |
+|---------|---------|
+| [01-c4-container-architecture.svg](diagrams/01-c4-container-architecture.svg) | C4 Container view showing all five components and their data flows |
+| [02-layered-architecture-state-boundaries.svg](diagrams/02-layered-architecture-state-boundaries.svg) | Layered architecture showing pure vs stateful zones |
+| [03-sequence-character-lifecycle.svg](diagrams/03-sequence-character-lifecycle.svg) | Sequence diagram of character appearing and being shown to player |
+
+**Read these when:**
+- You need to understand how components connect
+- You're explaining the architecture to others
+- You want to see the pure/stateful boundary
+- You need to understand the complete data flow
+
+**Best viewed in:**
+- System Architecture document: [02_pipeworks_system_architecture.md](design/02_pipeworks_system_architecture.md)
+- Or directly: Open the `.svg` files in a browser
 
 ### `images/` - Documentation Images
 

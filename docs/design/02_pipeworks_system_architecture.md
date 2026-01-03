@@ -49,7 +49,46 @@ The real-world architecture documents do not.
 
 Pipeworks is best understood as a pipeline. Data flows primarily in one direction through a set of transformation stages.
 
-**(HOLD for MERMAID DIAGRAM)**
+## 3.0 System Architecture Diagrams
+
+Three complementary diagrams visualize the Pipeworks ecosystem from different perspectives:
+
+### Diagram 1: C4 Container Architecture
+
+Shows all five components, their technology boundaries, and data flow contracts.
+
+![C4 Container Architecture](../diagrams/01-c4-container-architecture.svg)
+
+**Key Insights:**
+- The Daily Undertaking UI is the **singularity** where all flows converge
+- Clear separation between pure/stateless components (Registry, Generator, Image Gen) and stateful components (MUD, UI)
+- Bidirectional communication only exists between Player ↔ UI and MUD ↔ UI
+- Unidirectional pipeline: Registry → Generator → MUD → Images → UI
+
+### Diagram 2: Layered Architecture with State Boundaries
+
+Shows the five architectural layers and the critical pure/stateful boundary.
+
+![Layered Architecture](../diagrams/02-layered-architecture-state-boundaries.svg)
+
+**Key Insights:**
+- **Pure Zone** (Registry, Generator, Image Gen): Deterministic, reproducible, stateless
+- **Stateful Zone** (MUD, UI): Interactive, adaptive, evolving
+- **Critical Transition**: Generator → MUD is where determinism ends and adaptation begins
+- **Layer 4 (UI)** is the only component allowed to "gossip across layers"
+- Each layer has clear responsibilities and boundaries
+
+### Diagram 3: Character Lifecycle Sequence
+
+Shows a concrete example: how a character appears and is shown to the player.
+
+![Sequence Diagram](../diagrams/03-sequence-character-lifecycle.svg)
+
+**Key Insights:**
+- Complete end-to-end flow through all six phases
+- Registry provides identity → Generator produces state → MUD integrates into world → Image Gen visualizes → UI presents to player
+- Shows the interaction loop: player actions feed back into the MUD
+- Demonstrates how pure and stateful zones interact in practice
 
 ## 3.1 The Data Pipeline
 
