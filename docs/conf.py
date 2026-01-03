@@ -56,6 +56,13 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 # The master toctree document
 master_doc = "index"
 
+# Suppress warnings for cross-references to files outside the docs tree
+# These files (CLAUDE.md, README.md, etc.) are in the repo root and intentionally
+# not part of the Sphinx documentation source. The links work on GitHub.
+suppress_warnings = [
+    "myst.xref_missing",  # Suppress MyST cross-reference warnings
+]
+
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
