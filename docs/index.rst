@@ -102,12 +102,6 @@ Quick Start
    guides/ReadTheDocs Setup Guide
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Design & Philosophy
-
-   design_philosophy/index
-
-.. toctree::
    :maxdepth: 1
    :caption: Additional Resources
 
