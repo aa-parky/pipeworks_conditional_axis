@@ -4,7 +4,7 @@
 
 **Estimated Time**: 2-3 hours (actual: ~2 hours so far)
 
-**Status**: 🟡 In Progress - 60% Complete (Sections 1-3 done)
+**Status**: 🟡 In Progress - 69% Complete (Sections 1-4 done)
 
 **Last Updated**: 2026-01-03
 
@@ -17,19 +17,23 @@
 | 1. Pre-Merge Preparation | ✅ Complete | 3/3 | ~10 min |
 | 2. Code Integration | ✅ Complete | 6/6 | ~20 min |
 | 3. Test Updates | ✅ Complete | 7/7 | ~30 min |
-| 4. Example Updates | ⏳ Next | 0/4 | Est. ~40 min |
+| 4. Example Updates | ✅ Complete | 4/4 | ~35 min |
 | 5. Documentation Updates | ⏳ Pending | 0/6 | Est. ~60 min |
 | 6. Verification & Testing | ⏳ Pending | 0/6 | Est. ~30 min |
 | 7. Deprecation & Cleanup | ⏳ Pending | 0/3 | Est. ~20 min |
 | 8. Risk Mitigation | ⏳ Pending | 0/3 | Est. ~20 min |
 
-**Completed**: 16/29 tasks (55%)
+**Completed**: 20/29 tasks (69%)
 
 ### Recent Commits
 - ✅ `0405711` - docs: add comprehensive merge TODO
 - ✅ `6587a7b` - docs: establish baseline API documentation
 - ✅ `0eed1e0` - feat: integrate facial signals into character conditions system
 - ✅ `ace1ae2` - test: update tests for facial signal integration
+- ✅ `cc0d67c` - docs: update merge_todo.md with progress (60% complete)
+- ✅ `b9fdd19` - style: fix linting issues (black formatting + ruff E402)
+- ✅ `271bb4e` - docs: mark Sections 2 & 3 tasks complete in merge_todo.md
+- ✅ `d2560e4` - feat: update examples for unified facial signal API (Section 4)
 
 ### Key Achievements
 - ✅ Facial signal axis added to CONDITION_AXES (7 values)
@@ -602,15 +606,17 @@
 
 ---
 
-## 4. Example Updates
+## 4. Example Updates ✅
 
 **Goal**: Update example scripts to use merged API.
+
+**Status**: ✅ Complete (Commit: d2560e4)
 
 ### 4.1 Update integration_example.py
 
 #### 4.1.1 Update Imports (Optional)
 
-- [ ] **Task**: Keep existing imports (backward compatible)
+- [x] **Task**: Keep existing imports (backward compatible)
 
   **File**: `examples/integration_example.py`
 
@@ -633,7 +639,7 @@
 
 #### 4.1.2 Add Comment About Unified API
 
-- [ ] **Task**: Add comment explaining new unified approach
+- [x] **Task**: Add comment explaining new unified approach
 
   **File**: `examples/integration_example.py`
 
@@ -659,7 +665,7 @@
 
 #### 4.1.3 Update format_as_narrative() Function
 
-- [ ] **Task**: Update narrative formatting for unified facial signals
+- [x] **Task**: Update narrative formatting for unified facial signals
 
   **File**: `examples/integration_example.py`
 
@@ -714,7 +720,7 @@
 
 ### 4.2 Update basic_usage.py
 
-- [ ] **Task**: Add example of unified facial signal generation
+- [x] **Task**: Add example of unified facial signal generation
 
   **File**: `examples/basic_usage.py`
 
@@ -751,7 +757,7 @@
 
 ### 4.3 Update advanced_usage.py
 
-- [ ] **Task**: Add exclusion rule example for facial signals
+- [x] **Task**: Add exclusion rule example for facial signals
 
   **File**: `examples/advanced_usage.py`
 
@@ -796,7 +802,7 @@
 
 ### 4.4 Add Migration Guide Example
 
-- [ ] **Task**: Create new example showing migration path
+- [x] **Task**: Create new example showing migration path
 
   **File**: `examples/migration_guide.py` (NEW FILE)
 
