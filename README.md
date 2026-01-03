@@ -43,22 +43,15 @@ pip install -e ".[dev]"
 ```python
 from condition_axis import (
     generate_condition,
-    generate_facial_condition,
     generate_occupation_condition,
     condition_to_prompt,
-    facial_condition_to_prompt,
     occupation_condition_to_prompt,
 )
 
-# Generate character physical and social state
+# Generate character physical and social state (may include facial signals)
 character_state = generate_condition(seed=42)
 print(character_state)
-# {'physique': 'wiry', 'wealth': 'poor', 'health': 'weary'}
-
-# Generate facial perception modifiers
-facial_state = generate_facial_condition(seed=42)
-print(facial_state)
-# {'overall_impression': 'weathered'}
+# {'physique': 'wiry', 'wealth': 'poor', 'health': 'weary', 'facial_signal': 'weathered'}
 
 # Generate occupation characteristics
 occupation_state = generate_occupation_condition(seed=42)
@@ -67,13 +60,14 @@ print(occupation_state)
 
 # Convert to comma-separated prompts (for image generation, text, etc.)
 char_prompt = condition_to_prompt(character_state)
-face_prompt = facial_condition_to_prompt(facial_state)
 occ_prompt = occupation_condition_to_prompt(occupation_state)
 
-full_prompt = f"{char_prompt}, {face_prompt}, {occ_prompt}"
+full_prompt = f"{char_prompt}, {occ_prompt}"
 print(full_prompt)
 # "wiry, poor, weary, weathered, tolerated, discreet, burdened"
 ```
+
+**Note**: As of v1.1.0, facial signals are integrated into `generate_condition()` as an optional axis. The separate `generate_facial_condition()` function is deprecated but maintained for backward compatibility.
 
 ---
 
@@ -133,13 +127,11 @@ Physical and social states that establish baseline character presentation:
 - **Health**: `sickly`, `scarred`, `weary`, `hale`, `limping`
 - **Demeanor**: `timid`, `suspicious`, `resentful`, `alert`, `proud`
 - **Age**: `young`, `middle-aged`, `old`, `ancient`
+- **Facial Signal**: `understated`, `pronounced`, `exaggerated`, `asymmetrical`, `weathered`, `soft-featured`, `sharp-featured`
 
-#### 2. Facial Conditions (`facial_conditions`)
-Perception modifiers that bias how faces are interpreted:
+**Note on Facial Signals**: Previously available as a separate `facial_conditions` module, facial signals are now integrated into the character conditions system. This allows for cross-system exclusion rules and more coherent character generation.
 
-- **Overall Impression**: `youthful`, `weathered`, `stern`, `gentle`, `marked`, `unremarkable`
-
-#### 3. Occupation Conditions (`occupation_axis`)
+#### 2. Occupation Conditions (`occupation_axis`)
 Labor pressures and social positioning (not job titles):
 
 - **Legitimacy**: `sanctioned`, `tolerated`, `questioned`, `illicit`
@@ -171,10 +163,18 @@ This creates believable populations where most characters are poor or modest.
 
 The system prevents illogical combinations through exclusion rules:
 
+**Within-system exclusions:**
 - Decadent characters can't be frail or sickly (wealth enables healthcare)
 - Ancient characters aren't timid (age brings confidence)
 - Broad, strong physiques don't pair with sickness
 - Hale (healthy) characters shouldn't have frail physiques
+
+**Cross-system exclusions (Character + Facial):**
+- Young characters can't have weathered faces (youth vs. wear)
+- Ancient characters rarely have understated features (age is pronounced)
+- Hale (healthy) characters don't look weathered (health affects appearance)
+- Sickly characters don't have soft-featured faces (redundant signal)
+- Decadent wealth prevents weathered appearance (wealth preserves)
 
 Exclusions are applied **after** random selection, removing conflicts rather than preventing selection. This allows for transparent debugging and maintains generative variety.
 
@@ -182,8 +182,7 @@ Exclusions are applied **after** random selection, removing conflicts rather tha
 
 Axes are categorized as **mandatory** (always included) or **optional** (conditionally included):
 
-- Character conditions: Physique and wealth are mandatory; health, demeanor, and age are optional (0-2 selected)
-- Facial conditions: Overall impression is mandatory
+- Character conditions: Physique and wealth are mandatory; health, demeanor, age, and facial_signal are optional (0-2 selected)
 - Occupation conditions: All five axes are mandatory
 
 This prevents prompt dilution while maintaining narrative clarity.
@@ -214,8 +213,8 @@ pipeworks_entity_state_generation/
 ├── src/condition_axis/         # Main package
 │   ├── __init__.py             # Public API exports
 │   ├── _base.py                # Shared utilities
-│   ├── character_conditions.py # Physical & social states
-│   ├── facial_conditions.py    # Facial perception modifiers
+│   ├── character_conditions.py # Physical, social & facial states
+│   ├── facial_conditions.py    # DEPRECATED (kept for reference)
 │   └── occupation_axis.py      # Occupation characteristics
 │
 ├── tests/                      # Test suite (90%+ coverage)
@@ -366,13 +365,17 @@ print(WEIGHTS['wealth'])
 # {'poor': 4.0, 'modest': 3.0, 'well-kept': 2.0, 'wealthy': 1.0, 'decadent': 0.5}
 ```
 
-### Adding Cross-System Exclusions (Future Work)
+### Cross-System Validation
 
-Currently, each axis system operates independently. When combining systems, you may want to implement cross-system validation:
+As of v1.1.0, cross-system exclusion rules are implemented between character and facial axes:
 
-- `age="young"` + `facial="weathered"` (contradiction)
-- `wealth="decadent"` + `legitimacy="illicit"` (possible, adds criminal wealth angle)
-- `demeanor="timid"` + `visibility="conspicuous"` (behavioral contradiction)
+- `age="young"` + `facial_signal="weathered"` → Excluded (contradiction)
+- `wealth="decadent"` + `facial_signal="weathered"` → Excluded (wealth preserves appearance)
+- `health="hale"` + `facial_signal="weathered"` → Excluded (health affects appearance)
+
+Future work:
+- Cross-validation with occupation axes (e.g., `demeanor="timid"` + `visibility="conspicuous"`)
+- Weighted cross-system preferences (soft constraints vs. hard exclusions)
 
 See [CLAUDE.md](./CLAUDE.md) for extension guidelines.
 

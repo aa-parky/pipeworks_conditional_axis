@@ -61,15 +61,16 @@ pre-commit run --all-files
 
 ### Core Modules Structure
 
-The package is organized around three independent generation systems, all sharing common utilities:
+The package is organized around two primary generation systems, all sharing common utilities:
 
 ```
 src/condition_axis/
 ├── _base.py                    # Shared utilities for all generators
-├── character_conditions.py     # Physical & social character states
-├── facial_conditions.py        # Facial perception modifiers
+├── character_conditions.py     # Physical, social & facial character states
 └── occupation_axis.py          # Occupation characteristics
 ```
+
+**Note**: The `facial_conditions.py` module has been deprecated and merged into `character_conditions.py` as of v1.1.0. It is kept in the repository for historical reference but should not be used in new code.
 
 ### The Axis Pattern
 
@@ -140,13 +141,18 @@ All systems provide `<type>_condition_to_prompt()` functions that convert struct
 
 ## Cross-System Integration
 
-The three systems (character, facial, occupation) can be combined for complete character generation. When combining systems, consider implementing cross-system exclusion rules:
+As of v1.1.0, facial signals are integrated into the character conditions system. Cross-system exclusion rules are implemented between character axes (including facial):
 
-- `age="young"` + `facial="weathered"` (contradiction)
-- `wealth="decadent"` + `legitimacy="illicit"` (possible, adds criminal wealth angle)
-- `demeanor="timid"` + `visibility="conspicuous"` (behavioral contradiction)
+**Implemented exclusions:**
+- `age="young"` + `facial_signal="weathered"` (contradiction)
+- `age="ancient"` + `facial_signal="understated"` (ancient is rarely subtle)
+- `wealth="decadent"` + `facial_signal="weathered"` (wealth preserves appearance)
+- `health="hale"` + `facial_signal="weathered"` (health affects appearance)
+- `health="sickly"` + `facial_signal="soft-featured"` (redundant signal)
 
-Currently, each system operates independently. Cross-system validation is left to the user.
+**Future integration:**
+- Cross-validation with occupation axes (e.g., `demeanor="timid"` + `visibility="conspicuous"`)
+- Weighted preferences for complementary combinations
 
 ## GitHub Actions
 
