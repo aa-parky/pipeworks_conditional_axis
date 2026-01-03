@@ -322,7 +322,10 @@ class TestGenerateCondition:
 
         for seed in range(500):
             condition = generate_condition(seed=seed)
-            if condition.get("age") == "ancient" and condition.get("facial_signal") == "understated":
+            if (
+                condition.get("age") == "ancient"
+                and condition.get("facial_signal") == "understated"
+            ):
                 violations.append(seed)
 
         assert len(violations) == 0, f"Ancient + understated found at seeds: {violations}"
@@ -344,7 +347,10 @@ class TestGenerateCondition:
 
         for seed in range(500):
             condition = generate_condition(seed=seed)
-            if condition.get("health") == "sickly" and condition.get("facial_signal") == "soft-featured":
+            if (
+                condition.get("health") == "sickly"
+                and condition.get("facial_signal") == "soft-featured"
+            ):
                 violations.append(seed)
 
         assert len(violations) == 0, f"Sickly + soft-featured found at seeds: {violations}"
@@ -355,7 +361,10 @@ class TestGenerateCondition:
 
         for seed in range(500):
             condition = generate_condition(seed=seed)
-            if condition.get("wealth") == "decadent" and condition.get("facial_signal") == "weathered":
+            if (
+                condition.get("wealth") == "decadent"
+                and condition.get("facial_signal") == "weathered"
+            ):
                 violations.append(seed)
 
         assert len(violations) == 0, f"Decadent + weathered found at seeds: {violations}"

@@ -38,9 +38,9 @@ warnings.warn(
     stacklevel=2,
 )
 
-import pytest
+import pytest  # noqa: E402
 
-from condition_axis import (
+from condition_axis import (  # noqa: E402
     FACIAL_AXES,
     FACIAL_EXCLUSIONS,
     FACIAL_POLICY,
@@ -50,7 +50,7 @@ from condition_axis import (
     get_available_facial_axes,
     get_facial_axis_values,
 )
-from condition_axis._base import weighted_choice
+from condition_axis._base import weighted_choice  # noqa: E402
 
 # ============================================================================
 # Test Data Structures
