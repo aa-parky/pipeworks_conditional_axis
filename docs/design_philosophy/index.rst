@@ -3,8 +3,10 @@ Design & Philosophy
 
 This section explores the foundational principles and conceptual frameworks behind the Pipeworks Conditional Axis system.
 
+For an overview and navigation guide, see the :doc:`README`.
+
 .. toctree::
-   :maxdepth: 1
+   :hidden:
 
    README
 
