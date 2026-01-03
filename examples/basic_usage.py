@@ -11,9 +11,9 @@ Run this example:
 """
 
 from condition_axis import (
+    condition_to_prompt,
     generate_condition,
     generate_occupation_condition,
-    condition_to_prompt,
     occupation_condition_to_prompt,
 )
 

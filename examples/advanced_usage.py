@@ -12,20 +12,18 @@ Run this example:
 """
 
 from collections import Counter
-from typing import Any
 
 from condition_axis import (
-    generate_condition,
-    generate_occupation_condition,
     condition_to_prompt,
+    generate_condition,
 )
 
 # Import internal data structures for inspection
 from condition_axis.character_conditions import (
-    CONDITION_AXES,
-    WEIGHTS,
-    EXCLUSIONS,
     AXIS_POLICY,
+    CONDITION_AXES,
+    EXCLUSIONS,
+    WEIGHTS,
 )
 
 
@@ -109,7 +107,7 @@ def example_2_exclusion_rules_in_action() -> None:
         health = char.get("health", "N/A")
         physique = char.get("physique", "N/A")
         print(f"    → Health: {health}, Physique: {physique}")
-        print(f"    → Notice: NO 'frail' or 'sickly' despite wealth allowing it")
+        print("    → Notice: NO 'frail' or 'sickly' despite wealth allowing it")
 
 
 def example_3_mandatory_vs_optional_axes() -> None:
@@ -194,10 +192,10 @@ def example_4_analyzing_generation_patterns() -> None:
     print("\nOptional Axes Appearance Rate:")
     print(
         f"  Health: {len(health_counts):4} / {sample_size} ({len(health_counts)/sample_size*100:.1f}%)"
-    )  # noqa: E501
+    )
     print(
         f"  Age: {len(age_counts):4} / {sample_size} ({len(age_counts)/sample_size*100:.1f}%)"
-    )  # noqa: E501
+    )
 
 
 def example_5_cross_system_exclusions() -> None:
@@ -239,7 +237,7 @@ def example_5_cross_system_exclusions() -> None:
         facial_signals = [c.get("facial_signal") for c in young_chars if "facial_signal" in c]
         if facial_signals:
             signal_counts = Counter(facial_signals)
-            print(f"\nFacial signals found in young characters:")
+            print("\nFacial signals found in young characters:")
             for signal, count in signal_counts.most_common():
                 print(f"  {signal}: {count}")
 
@@ -270,7 +268,7 @@ def example_6_inspecting_raw_data() -> None:
     print(f"  Total trigger conditions: {len(EXCLUSIONS)}")
 
     print("\nExample Exclusion:")
-    example_key = list(EXCLUSIONS.keys())[0]
+    example_key = next(iter(EXCLUSIONS.keys()))
     example_exclusions = EXCLUSIONS[example_key]
     print(f"  When {example_key}:")
     for axis, blocked_values in example_exclusions.items():

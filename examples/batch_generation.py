@@ -11,16 +11,14 @@ Run this example:
     python examples/batch_generation.py
 """
 
-import csv
 import json
 from collections.abc import Iterator
-from pathlib import Path
 from typing import Any
 
 from condition_axis import (
+    condition_to_prompt,
     generate_condition,
     generate_occupation_condition,
-    condition_to_prompt,
     occupation_condition_to_prompt,
 )
 
@@ -249,7 +247,7 @@ def example_4_filtering_and_selection() -> None:
     # Filter 1: Find wealthy individuals
     wealthy = [e for e in batch if e["character"].get("wealth") in ["wealthy", "decadent"]]
 
-    print(f"\nFilter 1: Wealthy individuals")
+    print("\nFilter 1: Wealthy individuals")
     print(f"  Found: {len(wealthy)} / {batch_size} ({len(wealthy)/batch_size*100:.1f}%)")
     if wealthy:
         example = wealthy[0]
@@ -263,7 +261,7 @@ def example_4_filtering_and_selection() -> None:
     # Filter 2: Find illicit occupations
     illicit = [e for e in batch if e["occupation"].get("legitimacy") == "illicit"]
 
-    print(f"\nFilter 2: Illicit occupations")
+    print("\nFilter 2: Illicit occupations")
     print(f"  Found: {len(illicit)} / {batch_size} ({len(illicit)/batch_size*100:.1f}%)")
     if illicit:
         example = illicit[0]
@@ -282,7 +280,7 @@ def example_4_filtering_and_selection() -> None:
         and e["facial"].get("overall_impression") == "weathered"
     ]
 
-    print(f"\nFilter 3: Young but weathered (complex criteria)")
+    print("\nFilter 3: Young but weathered (complex criteria)")
     print(
         f"  Found: {len(young_weathered)} / {batch_size} "
         f"({len(young_weathered)/batch_size*100:.1f}%)"

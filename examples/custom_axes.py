@@ -22,7 +22,6 @@ from typing import Any
 # Import shared utilities from the base module
 from condition_axis._base import apply_exclusion_rules, values_to_prompt, weighted_choice
 
-
 # ============================================================================
 # CUSTOM SYSTEM 1: Fantasy Magic Axes
 # ============================================================================
@@ -296,8 +295,8 @@ def example_3_combining_with_core_systems() -> None:
     print("=" * 70)
 
     from condition_axis import (
-        generate_condition,
         condition_to_prompt,
+        generate_condition,
     )
 
     print("\nFantasy Character (Core + Magic):\n")

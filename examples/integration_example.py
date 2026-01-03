@@ -12,12 +12,11 @@ Run this example:
     python examples/integration_example.py
 """
 
-from typing import Any
 
 from condition_axis import (
+    condition_to_prompt,
     generate_condition,
     generate_occupation_condition,
-    condition_to_prompt,
     occupation_condition_to_prompt,
 )
 
@@ -58,7 +57,11 @@ def example_1_complete_entity_generation() -> None:
 
     # Generate all three condition types with the same seed
     character = generate_condition(seed=seed)
-    facial = {"facial_signal": character.get("facial_signal", "")} if "facial_signal" in character else {}
+    facial = (
+        {"facial_signal": character.get("facial_signal", "")}
+        if "facial_signal" in character
+        else {}
+    )
     occupation = generate_occupation_condition(seed=seed)
 
     print(f"\nEntity (seed={seed}):")
@@ -71,14 +74,14 @@ def example_1_complete_entity_generation() -> None:
     face_prompt = condition_to_prompt(facial)
     occ_prompt = occupation_condition_to_prompt(occupation)
 
-    print(f"\nSerialized Prompts:")
+    print("\nSerialized Prompts:")
     print(f"  Character: {char_prompt}")
     print(f"  Facial: {face_prompt}")
     print(f"  Occupation: {occ_prompt}")
 
     # Combined prompt for image generation or narrative
     full_prompt = f"{char_prompt}, {face_prompt}, {occ_prompt}"
-    print(f"\nCombined Prompt:")
+    print("\nCombined Prompt:")
     print(f"  '{full_prompt}'")
 
 
@@ -98,7 +101,9 @@ def example_2_multiple_complete_entities() -> None:
         entity = {
             "seed": seed,
             "character": char,
-            "facial": {"facial_signal": char.get("facial_signal", "")} if "facial_signal" in char else {},
+            "facial": (
+                {"facial_signal": char.get("facial_signal", "")} if "facial_signal" in char else {}
+            ),
             "occupation": generate_occupation_condition(seed=seed),
         }
         entities.append(entity)
@@ -132,7 +137,11 @@ def example_3_narrative_vs_visual_formatting() -> None:
     seed = 777
 
     character = generate_condition(seed=seed)
-    facial = {"facial_signal": character.get("facial_signal", "")} if "facial_signal" in character else {}
+    facial = (
+        {"facial_signal": character.get("facial_signal", "")}
+        if "facial_signal" in character
+        else {}
+    )
     occupation = generate_occupation_condition(seed=seed)
 
     # 1. Structured data (for storage/transmission)
@@ -242,7 +251,11 @@ def example_4_identifying_coherence_patterns() -> None:
 
     for seed in range(50):
         character = generate_condition(seed=seed)
-        facial = {"facial_signal": character.get("facial_signal", "")} if "facial_signal" in character else {}
+        facial = (
+            {"facial_signal": character.get("facial_signal", "")}
+            if "facial_signal" in character
+            else {}
+        )
         occupation = generate_occupation_condition(seed=seed)
 
         # Look for specific patterns
@@ -327,7 +340,11 @@ def example_5_entity_archetype_generation() -> None:
         found = False
         for seed in range(1000000):
             character = generate_condition(seed=seed)
-            facial = {"facial_signal": character.get("facial_signal", "")} if "facial_signal" in character else {}
+            facial = (
+                {"facial_signal": character.get("facial_signal", "")}
+                if "facial_signal" in character
+                else {}
+            )
             occupation = generate_occupation_condition(seed=seed)
 
             char_match = criteria["character"](character)
@@ -343,7 +360,7 @@ def example_5_entity_archetype_generation() -> None:
                 break
 
         if not found:
-            print(f"  No match found in seeds 0-1000000")
+            print("  No match found in seeds 0-1000000")
         print()
 
 
