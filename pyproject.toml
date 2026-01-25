@@ -55,10 +55,10 @@ docs = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/aa-parky/pipeworks_conditional_axis"
-Repository = "https://github.com/aa-parky/pipeworks_conditional_axis.git"
-Issues = "https://github.com/aa-parky/pipeworks_conditional_axis/issues"
-Documentation = "https://github.com/aa-parky/pipeworks_conditional_axis/tree/main/docs"
+Homepage = "https://github.com/pipe-works/pipeworks_entity_state_generation"
+Repository = "https://github.com/pipe-works/pipeworks_entity_state_generation.git"
+Issues = "https://github.com/pipe-works/pipeworks_entity_state_generation/issues"
+Documentation = "https://github.com/pipe-works/pipeworks_entity_state_generation/tree/main/docs"
 
 [tool.setuptools]
 packages = ["condition_axis"]

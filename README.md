@@ -1,4 +1,4 @@
-[![Tests](https://github.com/aa-parky/pipeworks_entity_state_generation/actions/workflows/test.yml/badge.svg)](https://github.com/aa-parky/pipeworks_entity_state_generation/actions/workflows/test.yml) [![Lint & Type Check](https://github.com/aa-parky/pipeworks_entity_state_generation/actions/workflows/lint.yml/badge.svg)](https://github.com/aa-parky/pipeworks_entity_state_generation/actions/workflows/lint.yml) [![codecov](https://codecov.io/gh/aa-parky/pipeworks_entity_state_generation/branch/main/graph/badge.svg)](https://codecov.io/gh/aa-parky/pipeworks_entity_state_generation)[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Tests](https://github.com/pipe-works/pipeworks_entity_state_generation/actions/workflows/test.yml/badge.svg)](https://github.com/pipe-works/pipeworks_entity_state_generation/actions/workflows/test.yml) [![Lint & Type Check](https://github.com/pipe-works/pipeworks_entity_state_generation/actions/workflows/lint.yml/badge.svg)](https://github.com/pipe-works/pipeworks_entity_state_generation/actions/workflows/lint.yml) [![codecov](https://codecov.io/gh/pipe-works/pipeworks_entity_state_generation/branch/main/graph/badge.svg)](https://codecov.io/gh/pipe-works/pipeworks_entity_state_generation)[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 # Pipeworks Conditional Axis
 
@@ -29,7 +29,7 @@ State is expressed through **conditional axes**—structured, population-weighte
 pip install pipeworks-conditional-axis
 
 # Install from source for development
-git clone https://github.com/aa-parky/pipeworks_entity_state_generation.git
+git clone https://github.com/pipe-works/pipeworks_entity_state_generation.git
 cd pipeworks_entity_state_generation
 pip install -e ".[dev]"
 ```
@@ -370,7 +370,7 @@ See [CLAUDE.md](./CLAUDE.md) for extension guidelines.
 
 ```bash
 # Clone repository
-git clone https://github.com/aa-parky/pipeworks_entity_state_generation.git
+git clone https://github.com/pipe-works/pipeworks_entity_state_generation.git
 cd pipeworks_entity_state_generation
 
 # Create virtual environment
@@ -518,7 +518,7 @@ This separation ensures axes push toward coherence while quirks prevent the syst
 
 ## Integration with Pipeworks Ecosystem
 
-This library is part of the broader [Pipeworks](https://github.com/aa-parky) project:
+This library is part of the broader [Pipeworks](https://github.com/pipe-works) project:
 
 | Repository | Role | Relationship to This Library |
 |-----------|------|------------------------------|
