@@ -1,7 +1,0 @@
-{
-  // Disable YAML schema validation for publish.yml to suppress false positive
-  // validation errors for custom GitHub environment names ('pypi', 'testpypi')
-  "yaml.schemas": {
-    "": [".github/workflows/publish.yml"]
-  }
-}
