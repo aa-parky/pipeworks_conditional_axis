@@ -12,7 +12,6 @@ Run this example:
     python examples/image_prompt_generation.py
 """
 
-
 from condition_axis import (
     condition_to_prompt,
     generate_condition,
@@ -333,8 +332,7 @@ def example_7_prompt_engineering_tips() -> None:
     print("EXAMPLE 7: Prompt Engineering Best Practices")
     print("=" * 70)
 
-    print(
-        """
+    print("""
 ╔══════════════════════════════════════════════════════════════════╗
 ║              IMAGE GENERATION PROMPT BEST PRACTICES              ║
 ╚══════════════════════════════════════════════════════════════════╝
@@ -417,8 +415,7 @@ def example_7_prompt_engineering_tips() -> None:
 ╔══════════════════════════════════════════════════════════════════╗
 ║               READY TO GENERATE AMAZING CHARACTERS!              ║
 ╚══════════════════════════════════════════════════════════════════╝
-    """
-    )
+    """)
 
 
 def main() -> None:

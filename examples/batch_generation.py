@@ -370,8 +370,7 @@ def example_6_parallel_generation_pattern() -> None:
         )
 
     print("\nImplementation pattern:")
-    print(
-        """
+    print("""
     # Using Python's multiprocessing:
     from multiprocessing import Pool
 
@@ -383,8 +382,7 @@ def example_6_parallel_generation_pattern() -> None:
         tasks = [(w['start_seed'], w['count']) for w in workers]
         results = pool.map(worker_task, tasks)
         all_entities = [e for batch in results for e in batch]
-    """
-    )
+    """)
 
 
 def main() -> None:

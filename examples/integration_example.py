@@ -279,9 +279,7 @@ def example_4_identifying_coherence_patterns() -> None:
                     "pattern": (
                         "wealthy_illicit"
                         if is_wealthy_illicit
-                        else "young_weathered"
-                        if is_young_weathered
-                        else "contradictory"
+                        else "young_weathered" if is_young_weathered else "contradictory"
                     ),
                 }
             )
