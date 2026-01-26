@@ -1,5 +1,6 @@
 # yaml-language-server: $schema=
 # ^ Disables schema validation to suppress false positives for custom environment names
+# Custom environments 'pypi' and 'testpypi' are valid: https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment
 name: Build & Publish
 
 on:
@@ -41,9 +42,11 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
 
+    # yaml-language-server: disable
     environment:
       name: pypi
       url: https://pypi.org/p/pipeworks-conditional-axis
+    # yaml-language-server: enable
 
     permissions:
       id-token: write
@@ -64,9 +67,11 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
 
+    # yaml-language-server: disable
     environment:
       name: testpypi
       url: https://test.pypi.org/p/pipeworks-conditional-axis
+    # yaml-language-server: enable
 
     permissions:
       id-token: write
