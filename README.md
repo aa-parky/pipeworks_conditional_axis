@@ -1,4 +1,4 @@
-[![Tests](https://github.com/pipe-works/pipeworks_entity_state_generation/actions/workflows/test.yml/badge.svg)](https://github.com/pipe-works/pipeworks_entity_state_generation/actions/workflows/test.yml) [![Lint & Type Check](https://github.com/pipe-works/pipeworks_entity_state_generation/actions/workflows/lint.yml/badge.svg)](https://github.com/pipe-works/pipeworks_entity_state_generation/actions/workflows/lint.yml) [![codecov](https://codecov.io/gh/pipe-works/pipeworks_entity_state_generation/branch/main/graph/badge.svg)](https://codecov.io/gh/pipe-works/pipeworks_entity_state_generation)[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![CI](https://github.com/pipe-works/pipeworks_entity_state_generation/actions/workflows/ci.yml/badge.svg)](https://github.com/pipe-works/pipeworks_entity_state_generation/actions/workflows/ci.yml) [![codecov](https://codecov.io/gh/pipe-works/pipeworks_entity_state_generation/branch/main/graph/badge.svg)](https://codecov.io/gh/pipe-works/pipeworks_entity_state_generation) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 # Pipeworks Conditional Axis
 
@@ -244,8 +244,7 @@ pipeworks_entity_state_generation/
 │   └── _build/                 # Generated HTML (git-ignored)
 │
 └── .github/workflows/          # CI/CD
-    ├── test.yml                # Test runner
-    ├── lint.yml                # Code quality checks
+    ├── ci.yml                  # Unified CI workflow (test, lint, security, docs, build)
     └── publish.yml             # PyPI publishing
 ```
 
