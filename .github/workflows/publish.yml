@@ -42,11 +42,9 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
 
-    # yaml-language-server: disable
     environment:
-      name: pypi
+      name: pypi  # yaml-language-server: disable-line
       url: https://pypi.org/p/pipeworks-conditional-axis
-    # yaml-language-server: enable
 
     permissions:
       id-token: write
@@ -67,11 +65,9 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
 
-    # yaml-language-server: disable
     environment:
-      name: testpypi
+      name: testpypi  # yaml-language-server: disable-line
       url: https://test.pypi.org/p/pipeworks-conditional-axis
-    # yaml-language-server: enable
 
     permissions:
       id-token: write
