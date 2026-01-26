@@ -41,9 +41,9 @@ dependencies = []
 dev = [
 	"pytest>=8.0.0",
 	"pytest-cov>=4.1.0",
-	"black>=24.0.0",
-	"ruff>=0.3.0",
-	"mypy>=1.9.0",
+	"black==26.1.0",  # PINNED org-wide to prevent formatting drift
+	"ruff>=0.14.0",
+	"mypy>=1.19.0",
 	"pre-commit>=3.0.0",
 ]
 docs = [
@@ -146,9 +146,10 @@ addopts = [
 	"--disable-warnings",
 ]
 markers = [
-	"unit: unit tests",
-	"integration: integration tests",
-	"slow: slow running tests",
+	"unit: Fast unit tests (default)",
+	"integration: Integration tests requiring external resources",
+	"slow: Tests that take >5 seconds (deselect with '-m \"not slow\"')",
+	"requires_model: Tests requiring ML model downloads (deselect with '-m \"not requires_model\"')",
 ]
 
 [tool.coverage.run]
@@ -174,3 +175,7 @@ skip_covered = false
 
 [tool.coverage.html]
 directory = "htmlcov"
+
+[tool.bandit]
+exclude_dirs = ["tests", "docs"]
+skips = ["B101"]  # Skip assert_used check (assertions are fine in tests)
