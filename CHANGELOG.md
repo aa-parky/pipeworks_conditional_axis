@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.11.1](https://github.com/pipe-works/pipeworks_entity_state_generation/compare/pipeworks-conditional-axis-v0.11.0...pipeworks-conditional-axis-v0.11.1) (2026-01-27)
+
+
+### Bug Fixes
+
+* **packaging:** exclude __pycache__ from distribution ([#6](https://github.com/pipe-works/pipeworks_entity_state_generation/issues/6)) ([dd9763b](https://github.com/pipe-works/pipeworks_entity_state_generation/commit/dd9763b1d65e0e3fbdb85474f804f5a19357f80e))
+
 ## [0.11.0](https://github.com/pipe-works/pipeworks_entity_state_generation/compare/pipeworks-conditional-axis-v0.10.1...pipeworks-conditional-axis-v0.11.0) (2026-01-26)
 
 
